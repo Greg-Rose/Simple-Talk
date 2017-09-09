@@ -31,4 +31,11 @@ $(document).ready(function() {
       $('body').append(data);
     });
   });
+
+  $(".mic-btn img").hover(
+    function() {
+      $(".red-dot").show();
+    }, function() {
+      $(".red-dot").hide();
+  });
 });
