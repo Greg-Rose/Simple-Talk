@@ -6,6 +6,9 @@ from watson_developer_cloud import SpeechToTextV1 as SpeechToText
 
 from speech_sentiment_python.recorder import Recorder
 
+
+FINALS = []
+
 def transcribe_audio(path_to_audio_file):
     username = os.environ.get("BLUEMIX_USERNAME")
     password = os.environ.get("BLUEMIX_PASSWORD")
@@ -25,7 +28,7 @@ def transcribe_audio(path_to_audio_file):
 
 
 def main():
-    recorder = Recorder("app/assets/python/speech_to_text/speech.wav")
+    recorder = Recorder("app/assets/python/speech_to_text_2.0/speech.wav")
 
     # print("Recording!\n")
     recorder.record_to_file()
@@ -33,8 +36,19 @@ def main():
     # print("Transcribing audio....\n")
     result = transcribe_audio('speech.wav')
 
-    text = result['results'][0]['alternatives'][0]['transcript']
-    print("Text: " + text + "\n")
+    data = result
+    len(data["results"])
+    if "results" in data:
+        for shard in data["results"]:
+            # print "appending"
+            FINALS.append(shard)
+
+    transcript = "<br>".join([x['alternatives'][0]['transcript']
+                          for x in FINALS])
+    print(transcript + "\n")
+
+    # text = result['results'][0]['alternatives'][0]['transcript']
+    # print("Text: " + text + "\n")
 
 
 if __name__ == '__main__':
