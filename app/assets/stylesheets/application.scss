@@ -1,2 +1,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-color: #f2f2f2;
+}
+
+.home-btns {
+  margin-top: 60px;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #000;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  background-color: white;
+}
+
+.home-btns:hover {
+  background-color: #d9d9d9;
+}
+
+.home-btns h3 {
+  display: block;
+  margin-top: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.welcome-screen > div {
+  display: inline-block;
+}
