@@ -6,9 +6,13 @@
 
     <div class="col-md-12">
       <div class="mic-btn">
-        <%= image_tag("/microphone.png", size: "200") %>
+        <%= link_to "#" do %>
+          <%= image_tag("/microphone.png", size: "200") %>
+        <% end %>
       </div>
-      <div class="red-dot"></div>
+      <%= link_to "#" do %>
+        <div class="red-dot"></div>
+      <% end %>
     </div>
   </div>
 </div>

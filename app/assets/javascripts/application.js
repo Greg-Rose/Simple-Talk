@@ -16,23 +16,26 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $(".welcome-screen").on("click", "#simple-talk-btn", function(event) {
-    $(".welcome-screen").slideUp(800);
-
-    $.get( "/simple_translation/new", function( data ) {
-      $('body').append(data);
-      $(".new-translation").hide().slideDown(800);
+  $("body").on("click", ".mic-btn img", function(event) {
+    $.get( "/api/v1/simple_translation", function( data ) {
+      $('.welcome-screen .row').append(data.translation);
     });
   });
 
-  $("body").on("click", "#listen-btn", function(event) {
-    event.preventDefault();
-    $.get( "/simple_translation", function( data ) {
-      $('body').append(data);
+  $("body").on("click", ".red-dot", function(event) {
+    $.get( "/api/v1/simple_translation", function( data ) {
+      $('.welcome-screen .row').append(data.translation);
     });
   });
 
   $(".mic-btn img").hover(
+    function() {
+      $(".red-dot").show();
+    }, function() {
+      $(".red-dot").hide();
+  });
+
+  $(".red-dot").hover(
     function() {
       $(".red-dot").show();
     }, function() {
