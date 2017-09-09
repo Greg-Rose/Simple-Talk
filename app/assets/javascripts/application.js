@@ -14,3 +14,21 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+  $(".welcome-screen").on("click", "#simple-talk-btn", function(event) {
+    $(".welcome-screen").slideUp(800);
+
+    $.get( "/simple_translation/new", function( data ) {
+      $('body').append(data);
+      $(".new-translation").hide().slideDown(800);
+    });
+  });
+
+  $("body").on("click", "#listen-btn", function(event) {
+    event.preventDefault();
+    $.get( "/simple_translation", function( data ) {
+      $('body').append(data);
+    });
+  });
+});

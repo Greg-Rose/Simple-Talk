@@ -1,5 +1,8 @@
 {
   "name": "SimplifyDoc",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "watson-developer-cloud": "^2.39.0"
+  }
 }

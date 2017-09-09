@@ -2,22 +2,23 @@
 @import "bootstrap";
 
 body {
-  background-color: #f2f2f2;
+  background-color: #CDCDCD;
 }
 
 .home-btns {
   margin-top: 60px;
   height: 150px;
   width: 150px;
-  border: 1px solid #000;
+  border: 1px solid #a6a6a6;
   margin-left:auto;
   margin-right:auto;
   display:block;
-  background-color: white;
+  background-color: #99D3DF;
+  border-radius: 10px;
 }
 
 .home-btns:hover {
-  background-color: #d9d9d9;
+  background-color: #88BBD6;
 }
 
 .home-btns h3 {
@@ -30,4 +31,12 @@ body {
 
 .welcome-screen > div {
   display: inline-block;
+}
+
+.new-translation .panel {
+  margin-top: 60px;
+}
+
+.new-translation .panel-body {
+  min-height: 300px;
 }
