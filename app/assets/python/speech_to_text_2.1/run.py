@@ -25,7 +25,25 @@ def create_dict():
 			toreturn[term] = definition.strip()
 	return toreturn
 
+# def find_and_replace(text):
+#     glossary = create_dict()
+#     text_s = text
+# 	for word in glossary.keys():
+# 		text_s = text_s.replace(word, glossary[word])
+#
+# 	return text_s
 
+# def find_and_replace(text):
+#     glossary = create_dict()
+#     text_s = text
+#     for word in glossary.keys():
+#         if word in text_s:
+#             text_s = text_s.replace(word, glossary[word])
+#
+#     print text_s
+#
+#
+#     return text_s
 def find_and_replace(text):
 	glossary = create_dict()
 	# print glossary.keys()

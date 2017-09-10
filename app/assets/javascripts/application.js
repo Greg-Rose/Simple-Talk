@@ -48,5 +48,16 @@ $(document).ready(function() {
     $('.laymans').slideUp(400);
     $('.laymans-edit textarea').val(laymansOriginal);
     $('.edit-box').slideDown(400);
+    $('#edit-btn').removeClass('btn-primary').addClass('btn-success').text("Submit").attr("id","submit-btn");
+  });
+
+  $("body").on("click", "#submit-btn", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var laymansEdit = $('.laymans-edit textarea').val();
+    $('.edit-box').slideUp(400);
+    $('.laymans .translation').text(laymansEdit);
+    $('.laymans').slideDown(400);
+    $('#submit-btn').removeClass('btn-success').addClass('btn-primary').text("Edit").attr("id","edit-btn");
   });
 });
