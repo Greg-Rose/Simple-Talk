@@ -1,10 +1,15 @@
 <div class="container welcome-screen">
   <div class="row text-center">
     <div class="col-md-12">
-      <h1>Speak Simply Doc</h1>
+      <h1>Simple Talk</h1>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-sm-4">
+      <div class="translation-box jargon">
+      </div>
+    </div>
+
+    <div class="col-md-4 center-div">
       <div class="mic-btn">
         <%= link_to "#" do %>
           <%= image_tag("/microphone.png", size: "200") %>
@@ -14,9 +19,6 @@
         <div class="red-dot"></div>
         <div class="recording-dot"></div>
       <% end %>
-    </div>
-
-    <div class="col-xs-2 col-xs-offset-5 switch-div">
       <div class="onoffswitch">
         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
         <label class="onoffswitch-label" for="myonoffswitch">
@@ -24,6 +26,15 @@
           <span class="onoffswitch-switch"></span>
         </label>
       </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="translation-box laymans">
+      </div>
+    </div>
+
+    <div class="col-xs-2 col-xs-offset-5 switch-div">
+
     </div>
   </div>
 </div>
