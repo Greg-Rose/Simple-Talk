@@ -19,11 +19,14 @@ $(document).ready(function() {
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $(".recording-dot").show();
     $(".translation-box").slideUp(400);
+    $("#edit-btn").hide();
     showLoader();
     $.get( "/api/v1/simple_translation", function( data ) {
       $(".translation").remove();
       $(".recording-dot").hide();
-      $('.welcome-screen .jargon').append(data.translation);
+      $("#edit-btn").show();
+      $('.welcome-screen .jargon').append(data.original);
+      $('.welcome-screen .laymans').append(data.simple);
       $('.translation-box').hide().slideDown(400);
       $('#loader').slideUp(400).remove();
     });
