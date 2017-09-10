@@ -34,6 +34,10 @@ body {
   display: none;
 }
 
+.red-dot-with-edit-btn {
+  top: 40%;
+}
+
 .translation-box {
   background-color: black;
   background: -webkit-linear-gradient(left, #1a1a1a, #000000); /* For Safari 5.1 to 6.0 */
@@ -106,7 +110,16 @@ body {
   right: 0px;
 }
 
-#edit-btn {
+.edit-btn-div {
   display: none;
   margin-top: 20px;
+}
+
+.edit-box {
+  display: none;
+}
+
+.laymans-edit textarea {
+  height: 320px;
+  width: 220px;
 }

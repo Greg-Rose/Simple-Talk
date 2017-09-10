@@ -43,6 +43,7 @@ def transcribe_audio(path_to_audio_file):
 
     speech_to_text = SpeechToText(username=username,
                                   password=password)
+    speech_to_text.get_custom_model(modelid = "1efecd90-961e-11e7-907e-91c7e8f96686")
 
     with open(join(dirname(__file__), path_to_audio_file), 'rb') as audio_file:
         # print audio_file

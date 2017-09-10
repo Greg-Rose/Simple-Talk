@@ -19,12 +19,14 @@ $(document).ready(function() {
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $(".recording-dot").show();
     $(".translation-box").slideUp(400);
-    $("#edit-btn").hide();
+    $(".edit-btn-div").hide();
+    $(".red-dot").removeClass("red-dot-with-edit-btn");
     showLoader();
     $.get( "/api/v1/simple_translation", function( data ) {
       $(".translation").remove();
       $(".recording-dot").hide();
-      $("#edit-btn").show();
+      $(".red-dot").addClass("red-dot-with-edit-btn");
+      $(".edit-btn-div").show();
       $('.welcome-screen .jargon').append(data.original);
       $('.welcome-screen .laymans').append(data.simple);
       $('.translation-box').hide().slideDown(400);
@@ -37,5 +39,14 @@ $(document).ready(function() {
       $(".red-dot").show();
     }, function() {
       $(".red-dot").hide();
+  });
+
+  $("body").on("click", "#edit-btn", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var laymansOriginal = $('.laymans .translation').text();
+    $('.laymans').slideUp(400);
+    $('.laymans-edit textarea').val(laymansOriginal);
+    $('.edit-box').slideDown(400);
   });
 });
