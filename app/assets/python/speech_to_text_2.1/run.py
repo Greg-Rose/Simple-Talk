@@ -7,6 +7,11 @@ from watson_developer_cloud import SpeechToTextV1 as SpeechToText
 
 from speech_sentiment_python.recorder import Recorder
 
+import subprocess
+from subprocess import Popen, PIPE
+
+import json
+
 
 FINALS = []
 
@@ -40,17 +45,23 @@ def transcribe_audio(path_to_audio_file):
     # print username
     # print password
 
+    command = 'curl --user 38740936-e6f8-4565-94d7-f8313720876c:gb34y5zeaRSf -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @app/assets/python/speech_to_text_2.1/speech.wav "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
 
-    speech_to_text = SpeechToText(username=username,
-                                  password=password)
-    speech_to_text.get_custom_model(modelid = "1efecd90-961e-11e7-907e-91c7e8f96686")
+    process = Popen(command, stderr = PIPE, stdout = PIPE, shell= True)
+    stdout, stderr = process.communicate()
+    text = json.loads(stdout)
 
-    with open(join(dirname(__file__), path_to_audio_file), 'rb') as audio_file:
-        # print audio_file
-        text = speech_to_text.recognize(audio_file, content_type='audio/wav', continuous=True,
-                                    timestamps=False, max_alternatives=1)
-        # print text
-        return text
+
+    # speech_to_text = SpeechToText(username=username,
+    #                               password=password)
+    # speech_to_text.get_custom_model(modelid = "1efecd90-961e-11e7-907e-91c7e8f96686")
+    #
+    # with open(join(dirname(__file__), path_to_audio_file), 'rb') as audio_file:
+    #     # print audio_file
+    #     text = speech_to_text.recognize(audio_file, content_type='audio/wav', continuous=True,
+    #                                 timestamps=False, max_alternatives=1)
+    #     # print text
+    return text
 
 
 def main():
