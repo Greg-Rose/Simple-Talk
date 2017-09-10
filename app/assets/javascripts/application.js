@@ -18,12 +18,12 @@
 $(document).ready(function() {
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $(".recording-dot").show();
-    $(".translation").slideUp(400);
+    $(".translation-box").slideUp(400);
     $.get( "/api/v1/simple_translation", function( data ) {
-      $(".translation").remove();
+      $(".translation-box").remove();
       $(".recording-dot").hide();
       $('.welcome-screen .row').append(data.translation);
-      $('.translation').hide().slideDown(400);
+      $('.translation-box').hide().slideDown(400);
     });
   });
 
