@@ -33,28 +33,31 @@ def create_dict():
 #
 # 	return text_s
 
-# def find_and_replace(text):
-#     glossary = create_dict()
-#     text_s = text
-#     for word in glossary.keys():
-#         if word in text_s:
-#             text_s = text_s.replace(word, glossary[word])
-#
-#     print text_s
-#
-#
-#     return text_s
+
 def find_and_replace(text):
-	glossary = create_dict()
-	# print glossary.keys()
-	replaced = ''
-	for word in text.split():
-		# print word
-		if word in glossary.keys():
-			replaced += (glossary[word] + " ")
-		else:
-			replaced += (word + " ")
-	return ''.join(replaced)
+    #print "being called"
+    g = create_dict()
+    newtext  = str(text)
+    for word in g.keys():
+        if word in str(text):
+            newtext = newtext.replace(word, g[word])
+
+    #print "passed"
+    return newtext
+
+
+
+# def find_and_replace(text):
+# 	glossary = create_dict()
+# 	# print glossary.keys()
+# 	replaced = ''
+# 	for word in text.split():
+# 		# print word
+# 		if word in glossary.keys():
+# 			replaced += (glossary[word] + " ")
+# 		else:
+# 			replaced += (word + " ")
+# 	return ''.join(replaced)
 
 
 def transcribe_audio(path_to_audio_file):
@@ -125,8 +128,8 @@ def main():
 if __name__ == '__main__':
     dotenv_path = join(dirname(__file__), '.env')
     load_dotenv(dotenv_path)
-    try:
-        main()
-    except:
-        print("IOError detected, exiting...")
+#    try:
+    main()
+#    except:
+#        print("IOError detected, exiting...")
         #main()
