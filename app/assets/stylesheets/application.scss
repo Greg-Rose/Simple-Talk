@@ -1,42 +1,125 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
 
 body {
-  background-color: #CDCDCD;
+  background: #77C9D4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #085078, #85D8CE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #085078, #85D8CE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #085078, #85D8CE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #085078, #85D8CE); /* Standard syntax */
 }
 
-.home-btns {
+.welcome-screen h1 {
+  color: white;
+  font-family: 'Passion One';
+  font-size: 70px;
   margin-top: 60px;
-  height: 150px;
-  width: 150px;
-  border: 1px solid #a6a6a6;
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-  background-color: #99D3DF;
-  border-radius: 10px;
+  margin-bottom: 50px;
 }
 
-.home-btns:hover {
-  background-color: #88BBD6;
+.red-dot, .recording-dot {
+  background: #ff0000; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #ff0000, #990000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #ff0000, #990000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #ff0000, #990000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #ff0000, #990000); /* Standard syntax */
+  height: 16px;
+  width: 16px;
+  border-radius: 100px;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
-.home-btns h3 {
-  display: block;
-  margin-top: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+.red-dot-with-edit-btn {
+  top: 40%;
 }
 
-.welcome-screen > div {
-  display: inline-block;
+.translation-box {
+  background-color: black;
+  background: -webkit-linear-gradient(left, #1a1a1a, #000000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1a1a1a, #000000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1a1a1a, #000000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1a1a1a, #000000); /* Standard syntax */
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 30px;
+  // margin-top: 20px;
+  margin-bottom: 30px;
+  height: 400px;
+  overflow-y: scroll;
+  display: none;
 }
 
-.new-translation .panel {
-  margin-top: 60px;
+.translation {
+  color: white;
+  margin-bottom: 20px;
 }
 
-.new-translation .panel-body {
-  min-height: 300px;
+// Toggle Switch
+
+.onoffswitch {
+  position: relative; width: 96px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  margin-top: 20px;
+  margin-left: 133px;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "Active";
+  padding-right: 10px;
+  background-color: #2546C7; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  content: "Passive";
+  padding-right: 10px;
+  background-color: #EEEEEE; color: #2E2E2E;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 18px; margin: 6px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 62px;
+  border: 2px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+.edit-btn-div {
+  display: none;
+  margin-top: 20px;
+}
+
+.edit-box {
+  display: none;
+}
+
+.laymans-edit textarea {
+  height: 320px;
+  width: 220px;
 }

@@ -1,24 +1,60 @@
-# README
+# Simple Talk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Medical Jargon Transcription and Simplification App
 
-Things you may want to cover:
+## Contributors
 
-* Ruby version
+* Ja'naysha Hamilton
+* Sabrina Ibarra
+* Greg Rose
+* Bethany Dubois
+* Natacha Lou Comandante
 
-* System dependencies
+## How To Use
 
-* Configuration
+To clone and run this application (on Mac), you'll need [Git](https://git-scm.com), Ruby and Python installed on your computer. From your command line:
 
-* Database creation
+```bash
+# Install Ruby
+$ brew install ruby-install
+$ ruby-install ruby 2.4.1
+$ gem install rubygems-bundler
+$ gem regenerate_binstubs
 
-* Database initialization
+# Install Python 2.7.10
+$ brew install python
 
-* How to run the test suite
+# Install Python dependencies
+$ sudo easy_install pip
+$ sudo pip install -U python-dotenv
+$ sudo easy_install --upgrade watson-developer-cloud
+$ brew install openssl
+$ brew install portaudio
+$ sudo pip install pyaudio
 
-* Services (job queues, cache servers, search engines, etc.)
+# Clone this repo or optionally fork the repo and then clone your fork - install git first if not already installed
+$ git clone https://github.com/Greg-Rose/Simple-Talk.git
+  or
+$ git clone (your forked repo address here)
 
-* Deployment instructions
+# Go into the repository
+$ cd Simple-Talk
 
-* ...
+# Install Rails and other Ruby dependencies
+$ bundle install
+
+# Run the server
+$ rails s
+
+# Use the app
+In your browser, visit localhost:3000
+Use the app by clicking the microphone icon/button
+```
+
+## How To Contribute
+
+ 1. **Fork** the repo on GitHub
+ 2. **Clone** the project to your own machine
+ 3. **Commit** changes to your own branch
+ 4. **Push** your work back up to your fork
+ 5. Submit a **Pull request** so that your changes can be reviewed

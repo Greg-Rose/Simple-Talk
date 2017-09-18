@@ -62,17 +62,17 @@ class Recorder:
 
     def record(self):
         """
-        Record a word or words from the microphone and 
+        Record a word or words from the microphone and
         return the data as an array of signed shorts.
 
-        Normalizes the audio, trims silence from the 
-        start and end, and pads with 0.5 seconds of 
-        blank sound to make sure VLC et al can play 
+        Normalizes the audio, trims silence from the
+        start and end, and pads with 0.5 seconds of
+        blank sound to make sure VLC et al can play
         it without getting chopped off.
         """
 
         p = pyaudio.PyAudio()
-        print "Starting stream"
+        # print "Starting stream"
 
         stream = p.open(format=self.format, channels=1, rate=self.rate,
             input=True,
@@ -90,7 +90,7 @@ class Recorder:
             snd_data = array('h', stream.read(self.chunk_size))
             #snd_data = stream.read(self.chunk_size)
             r.extend(snd_data)
-            print num_silent
+            # print num_silent
 
             silent = self.is_silent(snd_data)
 
@@ -100,13 +100,13 @@ class Recorder:
                 snd_started = True
             elif not silent and snd_started:
                 num_silent = 0
-            if snd_started and num_silent > 40:
+            if snd_started and num_silent > 70:
                 break
 
         sample_width = p.get_sample_size(self.format)
         stream.stop_stream()
         stream.close()
-        print "Closing stream"
+        # print "Closing stream"
         p.terminate()
 
         r = self.normalize(r)

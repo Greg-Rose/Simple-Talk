@@ -1,50 +1,46 @@
 <div class="container welcome-screen">
   <div class="row text-center">
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Copy</h3>
+    <div class="col-md-12">
+      <h1>Simple Talk</h1>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="translation-box jargon">
+        <h2>Orginal</h2>
       </div>
     </div>
 
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Fax</h3>
+    <div class="col-md-4 center-div">
+      <div class="mic-btn">
+        <%= link_to "#" do %>
+          <%= image_tag("/microphone.png", size: "200") %>
+        <% end %>
+      </div>
+      <%= link_to "#" do %>
+        <div class="red-dot"></div>
+        <div class="recording-dot"></div>
+      <% end %>
+      <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+        <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <div class="edit-btn-div">
+        <%= link_to "Edit", "#", class: "btn btn-primary", id: "edit-btn" %>
       </div>
     </div>
 
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Scan</h3>
+    <div class="col-sm-4">
+      <div class="translation-box laymans">
+        <h2>Simple</h2>
       </div>
     </div>
 
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Print</h3>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Email</h3>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Edit</h3>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns">
-        <h3>Settings</h3>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-md-3">
-      <div class="home-btns" id="simple-talk-btn">
-        <h3>SimpleTalk</h3>
+    <div class="col-sm-4 edit-box">
+      <div class="translation-box laymans-edit">
+        <textarea></textarea>
       </div>
     </div>
   </div>
