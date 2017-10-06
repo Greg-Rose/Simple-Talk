@@ -29,6 +29,56 @@ $(document).ready(function() {
     // alert('Recorder initialized.');
   }
 
+  function startRecording(button) {
+    recorder && recorder.record();
+    // button.disabled = true;
+    // button.nextElementSibling.disabled = false;
+    // __log('Recording...');
+  }
+
+  function stopRecording(button) {
+    recorder && recorder.stop();
+    // button.disabled = true;
+    // button.previousElementSibling.disabled = false;
+    // __log('Stopped recording.');
+
+    // create WAV download link using audio data blob
+    var translation_id = saveRecording();
+    recorder.clear();
+  }
+
+  function saveRecording() {
+    recorder && recorder.exportWAV(function(blob) {
+      var url = URL.createObjectURL(blob);
+      // var li = document.createElement('li');
+      // var au = document.createElement('audio');
+      // var hf = document.createElement('a');
+
+      // au.controls = true;
+      // au.src = url;
+      // hf.href = url;
+      // hf.download = new Date().toISOString() + '.wav';
+      // hf.innerHTML = hf.download;
+      // li.appendChild(au);
+      // li.appendChild(hf);
+      // $('body').append('<ul id="recordingslist"></ul>');
+      // recordingslist.appendChild(li);
+      var formData = new FormData();
+      formData.append('recording', blob);
+      var request = $.ajax({
+          type: "POST",
+          url: "/translations",
+          processData: false,
+          contentType: false,
+          data: formData
+      });
+
+      request.done(function(response) {
+        return response.translation_id;
+      });
+    });
+  }
+
   try {
     // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -52,16 +102,25 @@ $(document).ready(function() {
     $(".edit-btn-div").hide();
     $(".red-dot").removeClass("red-dot-with-edit-btn");
     showLoader();
-    $.get( "/api/v1/simple_translation", function( data ) {
-      $(".translation").remove();
+    startRecording();
+    $(".stop-btn-div").show();
+    $("body").on("click", "#stop-btn", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      stopRecording();
+      $(".stop-btn-div").hide();
       $(".recording-dot").hide();
-      $(".red-dot").addClass("red-dot-with-edit-btn");
-      $(".edit-btn-div").show();
-      $('.welcome-screen .jargon').append(data.original);
-      $('.welcome-screen .laymans').append(data.simple);
-      $('.translation-box').hide().slideDown(400);
-      $('#loader').slideUp(400).remove();
     });
+    // $.get( "/api/v1/simple_translation", function( data ) {
+    //   $(".translation").remove();
+    //   $(".recording-dot").hide();
+    //   $(".red-dot").addClass("red-dot-with-edit-btn");
+    //   $(".edit-btn-div").show();
+    //   $('.welcome-screen .jargon').append(data.original);
+    //   $('.welcome-screen .laymans').append(data.simple);
+    //   $('.translation-box').hide().slideDown(400);
+    //   $('#loader').slideUp(400).remove();
+    // });
   });
 
   $(".mic-btn img, .red-dot").hover(

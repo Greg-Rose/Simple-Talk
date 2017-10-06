@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       resource :simple_translation, only: [:show]
     end
   end
+
+  resources :translations, only: [:create]
 end
