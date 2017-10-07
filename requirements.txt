@@ -1,2 +1,2 @@
--U python-dotenv
---upgrade watson-developer-cloud
+python-dotenv
+watson-developer-cloud
