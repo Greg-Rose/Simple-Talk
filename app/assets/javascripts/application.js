@@ -43,7 +43,6 @@ $(document).ready(function() {
     // __log('Stopped recording.');
 
     // create WAV download link using audio data blob
-    console.log(recorder)
     saveRecording();
     recorder.clear();
   }
@@ -113,9 +112,9 @@ $(document).ready(function() {
     startRecording();
     $(".recording-dot, .red-dot").addClass("recording-dot-with-stop-btn");
     $(".stop-btn-div").show();
-    $("body").on("click", "#stop-btn", function(event) {
-      event.preventDefault();
-      event.stopPropagation();
+    $("#stop-btn").off().click(function(event2) {
+      event2.preventDefault();
+      event2.stopPropagation();
       $(".stop-btn-div").hide();
       $(".recording-dot, .red-dot").removeClass("recording-dot-with-stop-btn");
       $(".recording-dot").hide();

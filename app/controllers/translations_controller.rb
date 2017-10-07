@@ -13,7 +13,7 @@ class TranslationsController < ApplicationController
     render json: {
       original: render_transcript(new_translation.transcript),
       simplified: render_transcript(new_translation.simplified)
-    }
+    }, status: :created
   end
 
   private

@@ -22,6 +22,8 @@
 
 .env
 
+/public/uploads/translation
+
 speech.wav
 .DS_Store
 .env
