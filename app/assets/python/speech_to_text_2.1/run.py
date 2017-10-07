@@ -11,7 +11,7 @@ import subprocess
 from subprocess import Popen, PIPE
 
 import json
-
+import sys
 
 FINALS = []
 
@@ -66,7 +66,7 @@ def transcribe_audio(path_to_audio_file):
     # print username
     # print password
 
-    command = 'curl --user 38740936-e6f8-4565-94d7-f8313720876c:gb34y5zeaRSf -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @app/assets/python/speech_to_text_2.1/speech.wav "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
+    command = 'curl --user ' + username + ':' + password +' -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @' + path_to_audio_file + ' "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
 
     process = Popen(command, stderr = PIPE, stdout = PIPE, shell= True)
     stdout, stderr = process.communicate()
@@ -86,43 +86,43 @@ def transcribe_audio(path_to_audio_file):
 
 
 def main():
-    recorder = Recorder("app/assets/python/speech_to_text_2.1/speech.wav")
+	# recorder = Recorder("app/assets/python/speech_to_text_2.1/speech.wav")
 
-    # print("Recording!\n")
-    recorder.record_to_file()
+	# print("Recording!\n")
+	# recorder.record_to_file()
 
-    # print("Transcribing audio....\n")
-    result = transcribe_audio('speech.wav')
+	# print("Transcribing audio....\n")
+	result = transcribe_audio(sys.argv[1])
 
-    data = result
-    len(data["results"])
-    if "results" in data:
-        for shard in data["results"]:
-            FINALS.append(shard)
+	data = result
+	len(data["results"])
+	if "results" in data:
+	    for shard in data["results"]:
+	        FINALS.append(shard)
 
-    transcript = "<br>".join([x['alternatives'][0]['transcript']
-                          for x in FINALS])
+	transcript = "<br>".join([x['alternatives'][0]['transcript']
+	                      for x in FINALS])
 
-    clean_transcript = "".join([x['alternatives'][0]['transcript']
-                          for x in FINALS])
-    print(transcript + "\n")
+	clean_transcript = "".join([x['alternatives'][0]['transcript']
+	                      for x in FINALS])
+	print(transcript + "\n")
 
-    simple = find_and_replace(clean_transcript)
+	simple = find_and_replace(clean_transcript)
 
-    f = open("app/assets/python/speech_to_text_2.1/original.txt", "w")
-    f.write(transcript)
-    f.close()
+	f = open("app/assets/python/speech_to_text_2.1/original.txt", "w")
+	f.write(transcript)
+	f.close()
 
-    f = open("app/assets/python/speech_to_text_2.1/simple.txt", "w")
-    f.write(simple)
-    f.close()
-    # with open("app/assets/python/speech_to_text_2.1/original.txt", "w") as text_file:
-    #     text_file.write(transcript)
-    # with open("app/assets/python/speech_to_text_2.1/simple.txt", "w") as text2_file:
-    #     text2_file.write(simple)
+	f = open("app/assets/python/speech_to_text_2.1/simple.txt", "w")
+	f.write(simple)
+	f.close()
+	# with open("app/assets/python/speech_to_text_2.1/original.txt", "w") as text_file:
+	#     text_file.write(transcript)
+	# with open("app/assets/python/speech_to_text_2.1/simple.txt", "w") as text2_file:
+	#     text2_file.write(simple)
 
-    #text = result['results'][0]['alternatives'][0]['transcript']
-    #print("Text: " + text + "\n")
+	#text = result['results'][0]['alternatives'][0]['transcript']
+	#print("Text: " + text + "\n")
 
 
 if __name__ == '__main__':

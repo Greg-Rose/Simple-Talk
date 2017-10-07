@@ -33,7 +33,7 @@ $(document).ready(function() {
     recorder && recorder.record();
     // button.disabled = true;
     // button.nextElementSibling.disabled = false;
-    // __log('Recording...');
+    // console.log('Recording...');
   }
 
   function stopRecording(button) {
@@ -43,7 +43,8 @@ $(document).ready(function() {
     // __log('Stopped recording.');
 
     // create WAV download link using audio data blob
-    var translation_id = saveRecording();
+    console.log(recorder)
+    saveRecording();
     recorder.clear();
   }
 
@@ -73,8 +74,14 @@ $(document).ready(function() {
           data: formData
       });
 
-      request.done(function(response) {
-        return response.translation_id;
+      request.success(function(response) {
+        $(".red-dot").addClass("red-dot-with-edit-btn");
+        $(".edit-btn-div").show();
+        $('.welcome-screen .jargon h3').html(response.original);
+        $('.welcome-screen .laymans h3').html(response.simplified);
+        $('.translation-box').slideDown(400);
+        $('#loader').slideUp(400).remove();
+        $('.mic-btn img, .red-dot').unbind('click', false);
       });
     });
   }
@@ -97,30 +104,23 @@ $(document).ready(function() {
   });
 
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
+    $('.mic-btn img, .red-dot').bind('click', false);
     $(".recording-dot").show();
     $(".translation-box").slideUp(400);
     $(".edit-btn-div").hide();
     $(".red-dot").removeClass("red-dot-with-edit-btn");
     showLoader();
     startRecording();
+    $(".recording-dot, .red-dot").addClass("recording-dot-with-stop-btn");
     $(".stop-btn-div").show();
     $("body").on("click", "#stop-btn", function(event) {
       event.preventDefault();
       event.stopPropagation();
-      stopRecording();
       $(".stop-btn-div").hide();
+      $(".recording-dot, .red-dot").removeClass("recording-dot-with-stop-btn");
       $(".recording-dot").hide();
+      stopRecording();
     });
-    // $.get( "/api/v1/simple_translation", function( data ) {
-    //   $(".translation").remove();
-    //   $(".recording-dot").hide();
-    //   $(".red-dot").addClass("red-dot-with-edit-btn");
-    //   $(".edit-btn-div").show();
-    //   $('.welcome-screen .jargon').append(data.original);
-    //   $('.welcome-screen .laymans').append(data.simple);
-    //   $('.translation-box').hide().slideDown(400);
-    //   $('#loader').slideUp(400).remove();
-    // });
   });
 
   $(".mic-btn img, .red-dot").hover(
