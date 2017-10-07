@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from watson_developer_cloud import SpeechToTextV1 as SpeechToText
 #import jargon_replace
 
-from speech_sentiment_python.recorder import Recorder
+# from speech_sentiment_python.recorder import Recorder
 
 import subprocess
 from subprocess import Popen, PIPE
