@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'dotenv-rails'
 end
 
 group :production do

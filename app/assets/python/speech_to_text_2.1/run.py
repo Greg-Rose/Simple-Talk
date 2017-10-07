@@ -12,6 +12,7 @@ from subprocess import Popen, PIPE
 
 import json
 import sys
+import urllib
 
 FINALS = []
 
@@ -66,7 +67,8 @@ def transcribe_audio(path_to_audio_file):
     # print username
     # print password
 
-    command = 'curl --user ' + username + ':' + password +' -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @' + path_to_audio_file + ' "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
+    urllib.urlretrieve(path_to_audio_file, "tmp/speech.wav")
+    command = 'curl --user ' + username + ':' + password +' -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @tmp/speech.wav "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
 
     process = Popen(command, stderr = PIPE, stdout = PIPE, shell= True)
     stdout, stderr = process.communicate()
