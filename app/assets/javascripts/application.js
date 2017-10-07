@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
+//= require recorder
 //= require_tree .
 
 $(document).ready(function() {
