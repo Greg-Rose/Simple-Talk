@@ -17,7 +17,7 @@ import urllib
 FINALS = []
 
 def create_dict():
-	with open("app/assets/python/speech_to_text_2.1/expanded_thesaurus.txt") as g:
+	with open("lib/python/speech_to_text_2.1/expanded_thesaurus.txt") as g:
 		toreturn = {}
 
 		for line in g.readlines():
@@ -111,11 +111,11 @@ def main():
 
 	simple = find_and_replace(clean_transcript)
 
-	f = open("app/assets/python/speech_to_text_2.1/original.txt", "w")
+	f = open("lib/python/speech_to_text_2.1/original.txt", "w")
 	f.write(transcript)
 	f.close()
 
-	f = open("app/assets/python/speech_to_text_2.1/simple.txt", "w")
+	f = open("lib/python/speech_to_text_2.1/simple.txt", "w")
 	f.write(simple)
 	f.close()
 	# with open("app/assets/python/speech_to_text_2.1/original.txt", "w") as text_file:
