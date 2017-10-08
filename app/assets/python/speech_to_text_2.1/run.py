@@ -107,7 +107,7 @@ def main():
 
 	clean_transcript = "".join([x['alternatives'][0]['transcript']
 	                      for x in FINALS])
-	print(transcript + "\n")
+	print(clean_transcript + "\n")
 
 	simple = find_and_replace(clean_transcript)
 
