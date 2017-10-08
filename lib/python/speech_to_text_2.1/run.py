@@ -107,10 +107,11 @@ def main():
 
 	clean_transcript = "".join([x['alternatives'][0]['transcript']
 	                      for x in FINALS])
-	print(FINALS)
 
 	simple = find_and_replace(clean_transcript)
 
+	print(transcript)
+	
 	f = open("lib/python/speech_to_text_2.1/original.txt", "w")
 	f.write(transcript)
 	f.close()
