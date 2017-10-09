@@ -2,6 +2,8 @@
 
 Medical Jargon Transcription and Simplification App
 
+Try it out: https://simpletalkdoc.herokuapp.com
+
 ## Contributors
 
 * Ja'naysha Hamilton
@@ -10,7 +12,15 @@ Medical Jargon Transcription and Simplification App
 * Bethany Dubois
 * Natacha Lou Comandante
 
+
 ## How To Use
+
+ 1. Click the microphone icon/button to start recording
+ 2. Say what you want transcribed and simplified
+ 3. Click the Stop button when you're finished talking
+
+
+## How To Run Locally
 
 To clone and run this application (on Mac), you'll need [Git](https://git-scm.com), Ruby and Python installed on your computer. From your command line:
 
@@ -28,9 +38,6 @@ $ brew install python
 $ sudo easy_install pip
 $ sudo pip install -U python-dotenv
 $ sudo easy_install --upgrade watson-developer-cloud
-$ brew install openssl
-$ brew install portaudio
-$ sudo pip install pyaudio
 
 # Clone this repo or optionally fork the repo and then clone your fork - install git first if not already installed
 $ git clone https://github.com/Greg-Rose/Simple-Talk.git
@@ -43,12 +50,14 @@ $ cd Simple-Talk
 # Install Rails and other Ruby dependencies
 $ bundle install
 
+# Setup database
+$ rake db:create
+$ rake db:migrate
+
 # Run the server
 $ rails s
 
-# Use the app
-In your browser, visit localhost:3000
-Use the app by clicking the microphone icon/button
+# In your browser, visit localhost:3000
 ```
 
 ## How To Contribute
