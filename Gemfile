@@ -7,6 +7,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'carrierwave'
+gem 'fog-aws'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -22,8 +24,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'dotenv-rails'
 end
 
 group :production do
   gem 'rails_12factor'
 end
+
+ruby '2.4.1'

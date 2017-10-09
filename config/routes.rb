@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :simple_translation, only: [:show]
+      resources :translations, only: [:create]
     end
   end
+
 end

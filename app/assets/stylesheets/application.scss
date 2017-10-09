@@ -34,7 +34,7 @@ body {
   display: none;
 }
 
-.red-dot-with-edit-btn {
+.red-dot-with-edit-btn, .recording-dot-with-stop-btn {
   top: 40%;
 }
 
@@ -110,7 +110,9 @@ body {
   right: 0px;
 }
 
-.edit-btn-div {
+//
+
+.edit-btn-div, .stop-btn-div {
   display: none;
   margin-top: 20px;
 }
