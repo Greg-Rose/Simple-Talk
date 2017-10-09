@@ -34,13 +34,19 @@ def create_dict():
 #
 # 	return text_s
 
+def string_found(string1, string2):
+   string1 = " " + string1.strip() + " "
+   string2 = " " + string2.strip() + " "
+   return string2.find(string1) != -1
+
 
 def find_and_replace(text):
     #print "being called"
     g = create_dict()
     newtext  = str(text)
     for word in g.keys():
-        if word in str(text):
+        if string_found(word, str(text)):
+            #print("found " + word +  str(text))
             newtext = newtext.replace(word, g[word])
 
     #print "passed"
@@ -111,7 +117,7 @@ def main():
 	simple = find_and_replace(clean_transcript)
 
 	print(transcript)
-	
+
 	f = open("lib/python/speech_to_text_2.1/original.txt", "w")
 	f.write(transcript)
 	f.close()
