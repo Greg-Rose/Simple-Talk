@@ -15553,7 +15553,7 @@ $(document).ready(function() {
       formData.append('recording', blob);
       var request = $.ajax({
           type: "POST",
-          url: "/translations",
+          url: "api/v1/translations",
           processData: false,
           contentType: false,
           data: formData
