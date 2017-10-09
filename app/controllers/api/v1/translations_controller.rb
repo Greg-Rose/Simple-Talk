@@ -1,4 +1,4 @@
-class TranslationsController < ApplicationController
+class Api::V1::TranslationsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
