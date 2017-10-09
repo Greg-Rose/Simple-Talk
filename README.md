@@ -39,7 +39,8 @@ $ sudo easy_install pip
 $ sudo pip install -U python-dotenv
 $ sudo easy_install --upgrade watson-developer-cloud
 
-# Clone this repo or optionally fork the repo and then clone your fork - install git first if not already installed
+# Clone this repo or optionally fork the repo and then clone your fork
+#   (install git first if not already installed)
 $ git clone https://github.com/Greg-Rose/Simple-Talk.git
   or
 $ git clone (your forked repo address here)
