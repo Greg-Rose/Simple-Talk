@@ -68,15 +68,9 @@ def main():
 
 	simple = find_and_replace(clean_transcript)
 
-	print(transcript)
+	output = {"original": transcript, "simple": simple}
 
-	f = open("lib/python/speech_to_text_2.1/original.txt", "w")
-	f.write(transcript)
-	f.close()
-
-	f = open("lib/python/speech_to_text_2.1/simple.txt", "w")
-	f.write(simple)
-	f.close()
+	print(json.dumps(output))
 
 
 if __name__ == '__main__':
