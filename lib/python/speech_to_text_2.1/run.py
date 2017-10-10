@@ -42,7 +42,7 @@ def transcribe_audio(path_to_audio_file):
     password = os.environ.get("BLUEMIX_PASSWORD")
 
     urllib.urlretrieve(path_to_audio_file, "tmp/speech.wav")
-    command = 'curl --user ' + username + ':' + password +' -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @tmp/speech.wav "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=1efecd90-961e-11e7-907e-91c7e8f96686"'
+    command = 'curl --user ' + username + ':' + password +' -X POST -H "Content-Type: audio/wav" --header "Transfer-Encoding: chunked" --data-binary @tmp/speech.wav "https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true&model=en-US_BroadbandModel&customization_id=0a96a2d0-adf0-11e7-991d-ab5f78b86dad"'
 
     process = Popen(command, stderr = PIPE, stdout = PIPE, shell= True)
     stdout, stderr = process.communicate()
@@ -68,15 +68,9 @@ def main():
 
 	simple = find_and_replace(clean_transcript)
 
-	print(transcript)
+	output = {"original": transcript, "simple": simple}
 
-	f = open("lib/python/speech_to_text_2.1/original.txt", "w")
-	f.write(transcript)
-	f.close()
-
-	f = open("lib/python/speech_to_text_2.1/simple.txt", "w")
-	f.write(simple)
-	f.close()
+	print(json.dumps(output))
 
 
 if __name__ == '__main__':
