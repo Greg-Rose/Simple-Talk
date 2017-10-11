@@ -21,29 +21,19 @@ $(document).ready(function() {
   var recorder;
   function startUserMedia(stream) {
     var input = audio_context.createMediaStreamSource(stream);
-    // __log('Media stream created.');
     // Uncomment if you want the audio to feedback directly
     //input.connect(audio_context.destination);
-    //__log('Input connected to audio context destination.');
 
     recorder = new Recorder(input);
-    // alert('Recorder initialized.');
   }
 
   function startRecording(button) {
     recorder && recorder.record();
-    // button.disabled = true;
-    // button.nextElementSibling.disabled = false;
-    // console.log('Recording...');
   }
 
   function stopRecording(button) {
     recorder && recorder.stop();
-    // button.disabled = true;
-    // button.previousElementSibling.disabled = false;
-    // __log('Stopped recording.');
 
-    // create WAV download link using audio data blob
     saveRecording();
     recorder.clear();
   }
@@ -51,24 +41,12 @@ $(document).ready(function() {
   function saveRecording() {
     recorder && recorder.exportWAV(function(blob) {
       var url = URL.createObjectURL(blob);
-      // var li = document.createElement('li');
-      // var au = document.createElement('audio');
-      // var hf = document.createElement('a');
-
-      // au.controls = true;
-      // au.src = url;
-      // hf.href = url;
-      // hf.download = new Date().toISOString() + '.wav';
-      // hf.innerHTML = hf.download;
-      // li.appendChild(au);
-      // li.appendChild(hf);
-      // $('body').append('<ul id="recordingslist"></ul>');
-      // recordingslist.appendChild(li);
       var formData = new FormData();
       formData.append('recording', blob);
       var request = $.ajax({
           type: "POST",
           url: "api/v1/translations",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
           processData: false,
           contentType: false,
           data: formData
@@ -93,8 +71,6 @@ $(document).ready(function() {
     window.URL = window.URL || window.webkitURL;
 
     audio_context = new AudioContext;
-    // __log('Audio context set up.');
-    // alert('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
   } catch (e) {
     alert('No web audio support in this browser!');
   }
