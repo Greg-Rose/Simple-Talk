@@ -14,7 +14,7 @@ import urllib
 FINALS = []
 
 def create_dict():
-	with open("lib/python/speech_to_text_2.1/expanded_thesaurus.txt") as g:
+	with open("lib/python/speech_to_text_2.1/expanded_thesaurus2.txt") as g:
 		toreturn = {}
 
 		for line in g.readlines():

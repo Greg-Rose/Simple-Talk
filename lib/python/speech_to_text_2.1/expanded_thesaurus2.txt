@@ -63,7 +63,8 @@ antitussives	drug that relieves coughings
 antitussive	drug that relieves coughing
 anuss	rectums
 anus	rectum
-arrhythmia or dysrhythmia	a change from the normal heartbeat
+arrhythmiaa	change from the normal heartbeat
+dysrhythmia	a change from the normal heartbeat
 arteries	blood vessels
 artery	blood vessel
 arthralgias	joint pains
@@ -112,37 +113,13 @@ bradycardias	slow heart rates
 bradycardia	slow heart rate
 bronchospasms	difficulty breathing because the airways have narroweds
 bronchospasm	difficulty breathing because the airways have narrowed
-confidentiality willed not were	other peopled willed not find outed
-confidentiality will not be	other people will not find out
-confidentiality willing not being	other peopling willing not find outing
-confidentiality will not be	other people will not find out
-confidentiality willed not been	other peopled willed not find outed
-confidentiality will not be	other people will not find out
-compromised	
+confidentiality will not be compromised	other people will not find out
 carcinogenic	can cause cancer
 carcinomata	a type of cancers
 carcinoma	a type of cancer
 cardiac	heart; involving the heart
-a procedure in which a small tubed (catheter) is inserted through blooded	cardiac catheterization
-a procedure in which a small tube (catheter) is inserted through blood	cardiac catheterization
-a procedure in which a small tubing (catheter) is inserted through blooding	cardiac catheterization
-a procedure in which a small tube (catheter) is inserted through blood	cardiac catheterization
-a procedure in which a small tubed (catheter) is inserted through blooded	cardiac catheterization
-a procedure in which a small tube (catheter) is inserted through blood	cardiac catheterization
-vessels in the groined and into the heart that uses highlighting fluid to looked at	
-vessels in the groin and into the heart that uses highlighting fluid to look at	
-vessels in the groining and into the heart that uses highlighting fluid to looking at	
-vessels in the groin and into the heart that uses highlighting fluid to look at	
-vessels in the groined and into the heart that uses highlighting fluid to looked at	
-vessels in the groin and into the heart that uses highlighting fluid to look at	
-the blooded vessels in the heart	
-the blood vessels in the heart	
-the blooding vessels in the heart	
-the blood vessels in the heart	
-the blooded vessels in the heart	
-the blood vessels in the heart	
-cardioversion	a procedure that uses electricity to simulate the heart and make it return to
-its normal rhythm	
+cardiac catheterization	a procedure in which a small tube (catheter) is inserted through blood vessels in the groin and into the heart that uses highlighting fluid to look at the blood vessels in the heart
+cardioversion	a procedure that uses electricity to simulate the heart and make it return to its normal rhythm
 catheters	flexible plastic tube that is inserted into the ( )s
 catheter	flexible plastic tube that is inserted into the ( )
 central nervous systems	the brain and spinal cords
@@ -162,17 +139,10 @@ cognitive status	levels of awareness and thinking
 colons	large intestines; bowels
 colon	large intestines; bowel
 colonoscopies	procedures to look at the large intestine that uses a special camera at the
-colonoscopy	procedure to look at the large intestine that uses a special camera at the
-ended of a longed tubed that is inserted in the rectum	
-end of a long tube that is inserted in the rectum	
-ending of a longing tubing that is inserted in the rectum	
-end of a long tube that is inserted in the rectum	
-ended of a longed tubed that is inserted in the rectum	
-end of a long tube that is inserted in the rectum	
+colonoscopy	procedure to look at the large intestine that uses a special camera at the end of a long tube that is inserted in the rectum
 comas	unconscious states
 coma	unconscious state
 congenital	occurring prior to birth
-conjunctivitis	irritation and redness in the membrane covering the eyes
 conjunctivitis	irritation and redness in the membrane covering the eye
 consents	agreements
 consented	agreement
@@ -181,82 +151,47 @@ consenting	agreement
 consent	agreement
 consented	agreement
 consent	agreement
-contrast materials	a fluid that is given into thes vein or an area of thes body to highlight thes
-contrasted material	a fluid that is given into the veined or an area of the bodied to highlighted the
-contrast material	a fluid that is given into the vein or an area of the body to highlight the
-contrasting material	a fluid that is given into the veining or an area of the bodying to highlighting the
-contrast material	a fluid that is given into the vein or an area of the body to highlight the
-contrasted material	a fluid that is given into the veined or an area of the bodied to highlighted the
-contrast material	a fluid that is given into the vein or an area of the body to highlight the
-blooded vessels or bodied area under x-ray examination	
-blood vessels or body area under x-ray examination	
-blooding vessels or bodying area under x-ray examination	
-blood vessels or body area under x-ray examination	
-blooded vessels or bodied area under x-ray examination	
-blood vessels or body area under x-ray examination	
-Page 2 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
+contrast material	a fluid that is given into the vein or an area of the body to highlight the blood vessels or body area under x-ray examination
+contrasting material	a fluid that is given into the vein or an area of the body to highlight the blood vessels or body area under x-ray examination
 convulsions	seizures
 coronaries	hearts; involving the hearts
 coronary	heart; involving the heart
 creatinine clearance	a test of kidney function
-computed tomography; (CT)	computer enhanced X-ray; special type of x-ray
-scans	s
-scanned	
-scan	
-scanning	
-scan	
-scanned	
-scan	
-cultures	a test for the presence of germss
+computed tomography	computer enhanced X-ray; special type of x-ray
+CT	computer enhanced X-ray; special type of x-ray
+computed tomography scans	computer enhanced X-rays; special type of x-rays
+computed tomography scanned	computer enhanced X-ray; special type of x-ray
+computed tomography scan	computer enhanced X-ray; special type of x-ray
+computed tomography scanning	computer enhanced X-raying; special type of x-raying
+CT scans	computer enhanced X-rays; special type of x-rays
+CT scanned	computer enhanced X-ray; special type of x-ray
+CT scan	computer enhanced X-ray; special type of x-ray
+CT scanning	computer enhanced X-raying; special type of x-raying
+cultures	a test for the presence of germs
 culture	a test for the presence of germs
 cumulative	total sum (of events
 cutaneous	of the skin
-defecated	bowel movement; to passed stools
+defecated	bowel movement; passed stools
 defecate	bowel movement; to pass stools
-defecating	bowel movement; to passing stools
-defecate	bowel movement; to pass stools
-defecated	bowel movement; to passed stools
-defecate	bowel movement; to pass stools
-defibrillations	a procedure that uses electricity toes stimulate the heart and make it return toes
-defibrillation	a procedure that uses electricity to stimulate the heart and make it return to
-its normal rhythm	
+defecating	passing stools
+defibrillations	a procedure that uses electricity to stimulate the heart and make it return to its normal rhythm
+defibrillation	a procedure that uses electricity to stimulate the heart and make it return to its normal rhythm
 de novo	new
 dermatologic	of the skin
-deteriorated	to get worse; to lost functioned
+deteriorated	to get worse; lost function
 deteriorate	to get worse; to lose function
-deteriorating	to get worse; to losing functioning
-deteriorate	to get worse; to lose function
-deteriorated	to get worse; to lost functioned
-deteriorate	to get worse; to lose function
-diastolic blooded pressured	the blooded pressured when the heart rests between beats; the bottomed numbed
-diastolic blood pressure	the blood pressure when the heart rests between beats; the bottom number
-diastolic blooding pressuring	the blooding pressuring when the heart rests between beats; the bottoming numbing
-diastolic blood pressure	the blood pressure when the heart rests between beats; the bottom number
-diastolic blooded pressured	the blooded pressured when the heart rests between beats; the bottomed numbed
-diastolic blood pressure	the blood pressure when the heart rests between beats; the bottom number
-of a blooded pressured reading	
-of a blood pressure reading	
-of a blooding pressuring reading	
-of a blood pressure reading	
-of a blooded pressured reading	
-of a blood pressure reading	
+deteriorating	to get worse; losing function
+diastolic blood pressure	the blood pressure when the heart rests between beats; the bottom number of a blood pressure reading
 diplopias	double visions
 diplopia	double vision
 distal	away from the center of the body
 distensions	bloated; swollen; inflated
-diuretics	drug that causes an increase in urinations
+diuretics	drugs that causes an increase in urination
 diuretic	drug that causes an increase in urination
-double-blind	neither you nor your doctor will know what medicine you are taking (this
-could were found outed easily if necessary)	
-can be found out easily if necessary)	
- being finding outing easily if necessary)	
-can be found out easily if necessary)	
- been found outed easily if necessary)	
-can be found out easily if necessary)	
+double-blind	neither you nor your doctor will know what medicine you are taking
 duodenums	beginnings of the small intestine that is attached to the stomach
 duodenum	beginning of the small intestine that is attached to the stomach
-dysfunctions	not functioning properlies
+dysfunctions	not functioning properly
 dysfunction	not functioning properly
 dyspepsias	gas; upset stomaches
 dyspepsia	gas; upset stomach
@@ -264,17 +199,12 @@ dysplasias	abnormal cellss
 dysplasia	abnormal cells
 dyspneas	hards to breathe; short of breath
 dyspnea	hard to breathe; short of breath
-ECG, EKG, or	picture and measurement of the heart rhythm
-electrocardiograms	s
-electrocardiogram	
-echocardiograms	procedure that uses sound wavess to look at the heart; using sound wavess
-echocardiogram	procedure that uses sound waves to look at the heart; using sound waves
-to took pictures of the heart chambers and measured it pumping strength	
-to take pictures of the heart chambers and measure it pumping strength	
-to taking pictures of the heart chambers and measuring it pumping strength	
-to take pictures of the heart chambers and measure it pumping strength	
-to taken pictures of the heart chambers and measured it pumping strength	
-to take pictures of the heart chambers and measure it pumping strength	
+ECG	picture and measurement of the hearts rhythm
+EKG	picture and measurement of the hearts rhythm
+electrocardiograms	picture and measurements of the hearts rhythm
+electrocardiogram	picture and measurement of the hearts rhythm
+echocardiograms	procedures that use sound waves to look at the heart; using sound waves to take pictures of the heart chambers and measure its pumping strength
+echocardiogram	procedure that uses sound waves to look at the heart; using sound waves to take pictures of the heart chambers and measure its pumping strength
 EEG	measurement of electrical activity of the brain
 edemata	swellings
 edema	swelling
@@ -303,8 +233,6 @@ elucidated	to made clear; to determine; to find outed
 elucidate	to make clear; to determine; to find out
 embryos	unborn babies
 embryo	unborn baby
-Page 3 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 emeses	vomitings
 emesis	vomiting
 empiric	based on experience
@@ -347,19 +275,10 @@ flatulence	gas passed through the anus/rectum
 fibrillations	irregular beat of the heart or other muscles
 fibrillation	irregular beat of the heart or other muscle
 fibrous	Having many fibers
-flushing	to become red in the face or other part of the body because of rush of
-blooded to the skin; blushing of the skinned	
-blood to the skin; blushing of the skin	
-blooding to the skin; blushing of the skinning	
-blood to the skin; blushing of the skin	
-blooded to the skin; blushing of the skinned	
-blood to the skin; blushing of the skin	
+flushing	to become red in the face or other part of the body because of rush of blood to the skin; blushing of the skin
 fractures	breaks
 fractured	broke
-fracture	break
 fracturing	breaking
-fracture	break
-fractured	broken
 fracture	break
 gastric	stomach
 gastrointestinal	stomach and intestines
@@ -368,41 +287,23 @@ glucose	sugars
 glucose	sugar
 hematocrits	amounts of red blood cells in the blood
 hematocrit	amount of red blood cells in the blood
-hematomas	a bruise; bleeding into the body tissue around a blood vessel (if at the skins
-hematoma	a bruise; bleeding into the body tissue around a blood vessel (if at the skin
-surface, it looks liked a bruise)	
-surface, it looks like a bruise)	
-surface, it looks liking a bruise)	
-surface, it looks like a bruise)	
-surface, it looks liked a bruise)	
-surface, it looks like a bruise)	
+hematomas	a bruise; bleeding into the body tissue around a blood vessel
+hematoma	a bruise; bleeding into the body tissue around a blood vessel
 hemodynamic measurement	test to measure blood flow
 hemolyses	breakdowns in red blood cells
 hemolysis	breakdown in red blood cells
-heparin locked	Needle placed with blooded thinner to kept blooded from clotting inside the
-heparin lock	Needle placed with blood thinner to keep blood from clotting inside the
-heparin locking	Needle placed with blooding thinner to keeping blooding from clotting inside the
-heparin lock	Needle placed with blood thinner to keep blood from clotting inside the
-heparin locked	Needle placed with blooded thinner to kept blooded from clotting inside the
-heparin lock	Needle placed with blood thinner to keep blood from clotting inside the
-needled or tubing	
-needle or tubing	
-needling or tubing	
-needle or tubing	
-needled or tubing	
-needle or tubing	
+heparin locked	Needle placed with blood thinner to keep blood from clotting inside the needle or tubing
+heparin lock	Needle placed with blood thinner to keep blood from clotting inside the needle or tubing
+heparin locking	Needle placed with blood thinner to keep blood from clotting inside the needle or tubing
 hepatics	livers
 hepatic	liver
 hepatitis	inflammations of the liver
 hepatitis	inflammation of the liver
 hepatomas	cancer or tumor of the livers
 hepatoma	cancer or tumor of the liver
-heritable disease	a disease which can be passed to children resulting in damage to future
-children	
+heritable disease	a disease which can be passed to children resulting in damage to future children
 histopathologic	pertaining to disease of body tissues or cells
 history positive	in past medical history; that you have ever had
-Page 4 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 Holter monitored	a machined
 Holter monitor	a machine
 Holter monitoring	a machining
@@ -493,8 +394,6 @@ intensity	degree; amount
 interferons	agent that acts against virusess
 interferon	agent that acts against viruses
 intermittent	occurring repeatedly; alternately stopping and starting
-Page 5 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 intramuscular injections	to put into the muscle with a needles
 intramuscular injection	to put into the muscle with a needle
 intraperitoneal	into the abdominal cavity
@@ -527,26 +426,16 @@ libido	sexual desire; sex drive
 local anesthetics	medicines to numb an area of the body
 local anesthetic	medicine to numb an area of the body
 localized	restricted to one area
-lumbar punctures	spinsomel tsomep; some needle inserted between the bones of the spine to put in some
-lumbar punctured	spinal tap; a needled inserted between the bones of the spine to put in a
-lumbar puncture	spinal tap; a needle inserted between the bones of the spine to put in a
-lumbar puncturing	spinal tap; a needling inserted between the bones of the spine to putting in a
-lumbar puncture	spinal tap; a needle inserted between the bones of the spine to put in a
-lumbar punctured	spinal tap; a needled inserted between the bones of the spine to put in a
-lumbar puncture	spinal tap; a needle inserted between the bones of the spine to put in a
-drugged or took a sampled of fluid	
-drug or take a sample of fluid	
-drugging or taking a sampling of fluid	
-drug or take a sample of fluid	
-drugged or taken a sampled of fluid	
-drug or take a sample of fluid	
+lumbar punctures	spinal taps; needles inserted between the bones of the spine to put in some drug or take a sample of fluid
+lumbar punctured	spinal tapped; a needle inserted between the bones of the spine to put in a drug or take a sample of fluid
+lumbar puncture	spinal tap; a needle inserted between the bones of the spine to put in a drug or take a sample of fluid
+lumbar puncturing	spinal tapping; inserting needles between the bones of the spine to put in a drug or take a sample of fluid
 lumbosacral	lower back
-lymphangiographies	an x-ray of the lymphs nodes or tissues after injection of dye in lymphs
-lymphangiography	an x-ray of the lymph nodes or tissues after injection of dye in lymph
-vessels	
+lymphangiographies	x-rays of the lymph nodes or tissues after injection of dye in lymph vessels
+lymphangiography	an x-ray of the lymph nodes or tissues after injection of dye in lymph vessels
 lymphocytes	a type of white blood cells
 lymphocyte	a type of white blood cell
-lymphomata	a cancer of the lymph nodes or tissuess
+lymphomata	a cancer of the lymph nodes or tissues
 lymphoma	a cancer of the lymph nodes or tissues
 maintenance dosed	the usual daily dosed
 maintenance dose	the usual daily dose
@@ -562,14 +451,8 @@ manifested	showed
 medullobastoma	type of brain tumor
 meningitis	infection or irritation around the brains
 meningitis	infection or irritation around the brain
-metabolisms	processes by which food is used to supply energy for the body; the energy
-metabolism	process by which food is used to supply energy for the body; the energy
-the bodied uses when it works; the way the bodied breaks downed food or a drugged	
-the body uses when it works; the way the body breaks down food or a drug	
-the bodying uses when it works; the way the bodying breaks downing food or a drugging	
-the body uses when it works; the way the body breaks down food or a drug	
-the bodied uses when it works; the way the bodied breaks downed food or a drugged	
-the body uses when it works; the way the body breaks down food or a drug	
+metabolisms	processes by which food is used to supply energy for the body; the energy the body uses when it works; the way the body breaks down food or a drug
+metabolism	process by which food is used to supply energy for the body; the energy the body uses when it works; the way the body breaks down food or a drug
 metastasized	spread
 metastasize	spread
 metastasizing	spreading
@@ -587,19 +470,11 @@ monitored	checked on; kept tracked of; watched carefully
 monitor	check on; keep track of; watch carefully
 morbidities	undesired result or complication; serious diseases
 morbidity	undesired result or complication; serious disease
-Page 6 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 mortalities	Death or death rates
 mortality	Death or death rate
 mucosas	the lining inside the ( )s
 mucosa	the lining inside the ( )
-MUGA	procedure using a special camera to look at the heart after radioactive dye
-has been put into it through one of the veins	
-has been put into it through one of the veins	
-has been putting into it through one of the veins	
-has been put into it through one of the veins	
-has been put into it through one of the veins	
-has been put into it through one of the veins	
+MUGA	procedure using a special camera to look at the heart after radioactive dye has been put into it through one of the veins
 myalgias	muscle achess
 myalgia	muscle aches
 myocardial infarctions	heart attacks
@@ -628,19 +503,9 @@ neutropenia	Decrease in the main part of the white blood cells
 new indication	new use
 non-invasive	not breaking
 nosocomial pneumonia	pneumonia acquired in the hospital
-NG tubed (nasogastric)	a flexible plastic tubed that is passed through the nosed or mouthed and into the
-NG tube (nasogastric)	a flexible plastic tube that is passed through the nose or mouth and into the
-NG tubing (nasogastric)	a flexible plastic tubing that is passed through the nosing or mouthing and into the
-NG tube (nasogastric)	a flexible plastic tube that is passed through the nose or mouth and into the
-NG tubed (nasogastric)	a flexible plastic tubed that is passed through the nosed or mouthed and into the
-NG tube (nasogastric)	a flexible plastic tube that is passed through the nose or mouth and into the
-stomaches	s
-stomached	
-stomach	
-stomaching	
-stomach	
-stomached	
-stomach	
+NG tubed (nasogastric)	a flexible plastic tube that is passed through the nose or mouth and into the stomach
+NG tube (nasogastric)	a flexible plastic tube that is passed through the nose or mouth and into the stomach
+NG tubing (nasogastric)	flexible plastic tubing that is passed through the nose or mouth and into the stomach
 occlusions	Closing; obstructions
 occlusion	Closing; obstruction
 occulted blooded tested	a tested for small amounts of blooded in the stooled
@@ -651,9 +516,6 @@ occulted blooded tested	a tested for small amounts of blooded in the stooled
 occult blood test	a test for small amounts of blood in the stool
 oncologies	the study of tumors or cancers
 oncology	the study of tumors or cancer
-open-label	a study in which the drug
-investigators	s
-investigator	
 ophthalmic	pertaining to the eye
 optimum, optimal	best
 orals	by mouths
@@ -677,8 +539,6 @@ palpitations	irregular heart beats that you can feel
 parenteral	administration by injection
 paresthesias	tinglings in the ( )
 paresthesia	tingling in the ( )
-Page 7 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 partial seizure	seizure
 perceptions	views
 perception	view
@@ -711,19 +571,9 @@ pneumonia	lung infection
 pneumothoraxes	collapsed lungs
 pneumothorax	collapsed lung
 polyps	abnormal lumps that can sometimes be cancerous
-potentiated	increasing effected of a drugged by administration of another drugged at the same
-potentiate	increasing effect of a drug by administration of another drug at the same
-potentiating	increasing effecting of a drugging by administration of another drugging at the same
-potentiate	increasing effect of a drug by administration of another drug at the same
-potentiated	increasing effected of a drugged by administration of another drugged at the same
-potentiate	increasing effect of a drug by administration of another drug at the same
-times	s
-timed	
-time	
-timing	
-time	
-timed	
-time	
+potentiated	increasing effect of a drug by administration of another drug at the same time
+potentiate	increasing effect of a drug by administration of another drug at the same time
+potentiating	increasing effect of a drug by administration of another drug at the same time
 potentiator	Agent that helps another agent work better
 predictive valued	expected valued
 predictive value	expected value
@@ -771,19 +621,17 @@ quantifying	to measuring
 quantify	to measure
 quantified	to measured
 quantify	to measure
-Page 8 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 radiation therapies	x-ray or cobalt treatments
 radiation therapy	x-ray or cobalt treatment
 radioactive isotope	a chemical or substance that gives off radiant energy rays similar to X-rays
 randomly	like picking numbers out of a hat ; by chance
 recombinant	formation of new combinations of genes
 reconstitution	putting back together the original parts
-recuperated	to get 
+recuperated	to get
 recuperate	to get better
-recuperating	to get 
+recuperating	to get
 recuperate	to get better
-recuperated	to get 
+recuperated	to get
 recuperate	to get better
 recurred	happened again
 recur	happen again
@@ -804,14 +652,6 @@ relapsing	The returning or reappearance of disease
 relapse	The return or reappearance of disease
 relapsed	The returned or reappearance of disease
 relapse	The return or reappearance of disease
-[You must indicated what you willed accept. ex:]--birth controlled pills, Norplant7	reliable method of birthed controlled
-[You must indicate what you will accept. ex:]--birth control pills, Norplant7	reliable method of birth control
-[You must indicating what you willing accept. ex:]--birth controlling pills, Norplant7	reliable method of birthing controlling
-[You must indicate what you will accept. ex:]--birth control pills, Norplant7	reliable method of birth control
-[You must indicated what you willed accept. ex:]--birth controlled pills, Norplant7	reliable method of birthed controlled
-[You must indicate what you will accept. ex:]--birth control pills, Norplant7	reliable method of birth control
-(levonorgestrel), Depo-Provera7 (medroxyprogesterone), intra-uterine	
-device (IUD)	
 remissions	disappearances of evidence of cancer or other disease
 remission	disappearance of evidence of cancer or other disease
 renal	kidney
@@ -848,9 +688,8 @@ seminoma	a type of testes cancer
 sequentially	in a row
 somnolences	sleepinesses
 somnolence	sleepiness
-spirometers	instruments to measure the amount of air taken into and exhaled from the
-spirometer	instrument to measure the amount of air taken into and exhaled from the
-lungs	
+spirometers	instruments to measure the amount of air taken into and exhaled from the lungs
+spirometer	instrument to measure the amount of air taken into and exhaled from the lungs
 sputums	thick saliva; phlegms
 sputum	thick saliva; phlegm
 stagings	a determination of the extent of the diseases
@@ -863,14 +702,8 @@ standard of cared	the usual treatment for the disease
 standard of care	the usual treatment for the disease
 stenoses	narrowings of a duct
 stenosis	narrowing of a duct
-stents	a metal (or plastic) tube placed inside a blood vessel that keeps it open toes
-stent	a metal (or plastic) tube placed inside a blood vessel that keeps it open to
-prevented blockage	
-prevent blockage	
-preventing blockage	
-prevent blockage	
-prevented blockage	
-prevent blockage	
+stents	a metal (or plastic) tube placed inside a blood vessel that keeps it open to prevent blockage
+stent	a metal (or plastic) tube placed inside a blood vessel that keeps it open to prevent blockage
 stomatitis	mouths sores; inflammation of the mouths
 stomatitis	mouth sores; inflammation of the mouth
 stratified	Arrange in groups fro analysis of results
@@ -881,8 +714,6 @@ stratified	Arrange in groups fro analysis of results
 stratify	Arrange in groups fro analysis of results
 stupors	stunned state in which it is difficult to get a responses
 stupor	stunned state in which it is difficult to get a response
-Page 9 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 subclavian	under the collarbone
 subcutaneous	under the skin
 superficial	near the surface
@@ -956,13 +787,7 @@ triglycerides	fats in the blood
 triglyceride	fat in the blood
 tubal ligations	having the tubes tieds
 tubal ligation	having the tubes tied
-unable to complied with the studied	cannot followed studied directions
-unable to comply with the study	cannot follow study directions
-unable to complying with the studying	cannot following studying directions
-unable to comply with the study	cannot follow study directions
-unable to complied with the studied	cannot followed studied directions
-unable to comply with the study	cannot follow study directions
-requirements	
+unable to comply with the study	cannot follow study directions/requirements
 ureters	the tube that carries urine from the kidneys to by bladders
 ureter	the tube that carries urine from the kidneys to by bladder
 urethras	the tube that carries urine from the bladder outside the bodies
@@ -971,14 +796,11 @@ urinalyses	urines exam; test of the urines
 urinalysis	urine exam; test of the urine
 vaginitis	infections in the vagina or birth canal
 vaginitis	infection in the vagina or birth canal
-Page 10 of 11	
-MEDICAL TERM	LAY TERMINOLOGY
 valvuloplasty	plastic repair of a valve
 varices	enlarged veins
 vasospasm	narrowing of blood vessels due to spasm of vessel walls
 vectors	A carriers
 vector	A carrier
-germs	
 veins	blood vessels
 veined	blooded vessel
 vein	blood vessel
@@ -1011,4 +833,3 @@ withdrawing	leaving the study; quitting
 withdraw	leave the study; quit
 withdrawn	leaved the study; quitted
 withdraw	leave the study; quit
-Page 11 of 11	
