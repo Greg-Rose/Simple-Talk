@@ -11,16 +11,9 @@ import json
 import sys
 import urllib
 
+from thesaurus import THESAURUS
+
 FINALS = []
-
-def create_dict():
-	with open("lib/python/speech_to_text_2.1/expanded_thesaurus2.txt") as g:
-		toreturn = {}
-
-		for line in g.readlines():
-			[term, definition] = line.split('\t')
-			toreturn[term] = definition.strip()
-	return toreturn
 
 def string_found(string1, string2):
    string1 = " " + string1.strip() + " "
@@ -29,11 +22,10 @@ def string_found(string1, string2):
 
 
 def find_and_replace(text):
-    g = create_dict()
     newtext  = str(text)
-    for word in g.keys():
+    for word in THESAURUS.keys():
         if string_found(word, str(text)):
-            newtext = newtext.replace(word, g[word])
+            newtext = newtext.replace(word, THESAURUS[word])
 
     return newtext
 
