@@ -1,6 +1,4 @@
 class Api::V1::TranslationsController < ApplicationController
-  protect_from_forgery with: :null_session
-
   def create
     new_translation = Translation.new
     new_translation.audio_file = params["recording"].tempfile

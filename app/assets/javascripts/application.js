@@ -69,6 +69,7 @@ $(document).ready(function() {
       var request = $.ajax({
           type: "POST",
           url: "api/v1/translations",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
           processData: false,
           contentType: false,
           data: formData
