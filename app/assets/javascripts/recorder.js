@@ -27,7 +27,7 @@
           if(!u&&a)return a(o,!0);
           if(i)return i(o,!0);
           var f=new Error("Cannot find module '"+o+"'");
-          throw f.code="MODULE_NOT_FOUND",f
+          // throw f.code="MODULE_NOT_FOUND",f
         }
         var l=n[o]={exports:{}};
         t[o][0].call(l.exports,function(e) {
