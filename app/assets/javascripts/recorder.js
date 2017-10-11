@@ -27,7 +27,7 @@
           if(!u&&a)return a(o,!0);
           if(i)return i(o,!0);
           var f=new Error("Cannot find module '"+o+"'");
-          throw f.code="MODULE_NOT_FOUND",f
+          // throw f.code="MODULE_NOT_FOUND",f
         }
         var l=n[o]={exports:{}};
         t[o][0].call(l.exports,function(e) {
@@ -118,8 +118,8 @@ var Recorder = exports.Recorder = (function () {
         this.worker = new _inlineWorker2.default(function () {
             var recLength = 0,
                 recBuffers = [],
-                sampleRate = undefined,
-                numChannels = undefined;
+                sampleRate,
+                numChannels;
 
             self.onmessage = function (e) {
                 switch (e.data.command) {
@@ -159,7 +159,7 @@ var Recorder = exports.Recorder = (function () {
                 for (var channel = 0; channel < numChannels; channel++) {
                     buffers.push(mergeBuffers(recBuffers[channel], recLength));
                 }
-                var interleaved = undefined;
+                var interleaved;
                 if (numChannels === 2) {
                     interleaved = interleave(buffers[0], buffers[1]);
                 } else {
