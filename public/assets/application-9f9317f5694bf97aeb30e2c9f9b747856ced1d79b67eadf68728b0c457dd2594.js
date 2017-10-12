@@ -15420,7 +15420,6 @@ $(document).ready(function() {
   try {
     // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     window.URL = window.URL || window.webkitURL;
 
     audio_context = new AudioContext();
@@ -15428,9 +15427,9 @@ $(document).ready(function() {
     alert('No web audio support in this browser!');
   }
 
-  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-    // __log('No live audio input: ' + e);
-  });
+  navigator.mediaDevices.getUserMedia({audio: true})
+  .then(startUserMedia)
+  .catch(function(err) { console.log(err.name + ": " + err.message); });
 
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $('.mic-btn img, .red-dot').bind('click', false);
