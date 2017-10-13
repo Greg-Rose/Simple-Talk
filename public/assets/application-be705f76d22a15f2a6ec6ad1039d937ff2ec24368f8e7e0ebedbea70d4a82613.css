@@ -8795,6 +8795,11 @@ body {
 }
 
 /* line 13, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+#browser-alert {
+  display: none;
+}
+
+/* line 17, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .welcome-screen h1 {
   color: white;
   font-family: 'Passion One';
@@ -8803,7 +8808,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* line 21, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 25, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .red-dot, .recording-dot {
   background: #ff0000;
   /* For browsers that do not support gradients */
@@ -8825,12 +8830,12 @@ body {
   display: none;
 }
 
-/* line 37, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 41, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .red-dot-with-edit-btn, .recording-dot-with-stop-btn {
   top: 40%;
 }
 
-/* line 41, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 45, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .translation-box {
   background-color: black;
   background: -webkit-linear-gradient(left, #1a1a1a, #000000);
@@ -8850,13 +8855,13 @@ body {
   display: none;
 }
 
-/* line 57, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 61, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .translation {
   color: white;
   margin-bottom: 20px;
 }
 
-/* line 64, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 68, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch {
   position: relative;
   width: 96px;
@@ -8867,12 +8872,12 @@ body {
   margin-left: 133px;
 }
 
-/* line 70, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 74, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-checkbox {
   display: none;
 }
 
-/* line 74, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 78, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-label {
   display: block;
   overflow: hidden;
@@ -8881,7 +8886,7 @@ body {
   border-radius: 20px;
 }
 
-/* line 78, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 82, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-inner {
   display: block;
   width: 200%;
@@ -8889,7 +8894,7 @@ body {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 82, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 86, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-inner:before, .onoffswitch-inner:after {
   display: block;
   float: left;
@@ -8904,7 +8909,7 @@ body {
   box-sizing: border-box;
 }
 
-/* line 87, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 91, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-inner:before {
   content: "Active";
   padding-right: 10px;
@@ -8912,7 +8917,7 @@ body {
   color: #FFFFFF;
 }
 
-/* line 92, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 96, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-inner:after {
   content: "Passive";
   padding-right: 10px;
@@ -8921,7 +8926,7 @@ body {
   text-align: right;
 }
 
-/* line 98, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 102, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-switch {
   display: block;
   width: 18px;
@@ -8936,28 +8941,28 @@ body {
   transition: all 0.3s ease-in 0s;
 }
 
-/* line 106, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 110, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
 
-/* line 109, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 113, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
 
-/* line 115, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 119, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .edit-btn-div, .stop-btn-div {
   display: none;
   margin-top: 20px;
 }
 
-/* line 120, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 124, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .edit-box {
   display: none;
 }
 
-/* line 124, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
+/* line 128, /Users/Greg/Coding-Projects/SimplifyDoc/app/assets/stylesheets/application.scss */
 .laymans-edit textarea {
   height: 320px;
   width: 220px;
