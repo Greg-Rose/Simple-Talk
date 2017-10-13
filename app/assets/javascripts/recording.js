@@ -67,17 +67,25 @@ function saveRecording() {
 }
 
 function InitializeRecording() {
-  try {
-    // webkit shim
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    window.URL = window.URL || window.webkitURL;
+  if (navigator.mediaDevices) {
+    try {
+      // webkit shim
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      window.URL = window.URL || window.webkitURL;
 
-    audio_context = new AudioContext();
-  } catch (e) {
-    alert('No web audio support in this browser!');
+      audio_context = new AudioContext();
+    } catch (e) {
+      alert('No web audio support in this browser!');
+    }
+
+    navigator.mediaDevices.getUserMedia({audio: true})
+    .then(startUserMedia)
+    .catch(function(err) {
+      message = "We can't access your microphone. Please try accepting the permissions request for micriphone access.";
+      $("#browser-alert").text(message).show();
+    });
+  } else {
+    message = "Your browser is not compatible. Please try updating your browser to the most recent version.";
+    $("#browser-alert").text(message).show();
   }
-
-  navigator.mediaDevices.getUserMedia({audio: true})
-  .then(startUserMedia)
-  .catch(function(err) { console.log(err.name + ": " + err.message); });
 }

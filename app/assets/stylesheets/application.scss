@@ -10,6 +10,10 @@ body {
   background: linear-gradient(to right, #085078, #85D8CE); /* Standard syntax */
 }
 
+#browser-alert {
+  display: none;
+}
+
 .welcome-screen h1 {
   color: white;
   font-family: 'Passion One';
