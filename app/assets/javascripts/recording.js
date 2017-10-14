@@ -2,11 +2,12 @@ var audio_context;
 var recorder;
 
 function startUserMedia(stream) {
-  var input = audio_context.createMediaStreamSource(stream);
+  // var input = audio_context.createMediaStreamSource(stream);
   // Uncomment if you want the audio to feedback directly
   //input.connect(audio_context.destination);
 
-  recorder = new Recorder(input);
+  recorder = new Recorder();
+  recorder.initStream();
 
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $('.mic-btn img, .red-dot').bind('click', false);
@@ -30,14 +31,40 @@ function startUserMedia(stream) {
 }
 
 function startRecording(button) {
-  recorder.record();
+  recorder.start();
+
+  recorder.addEventListener( "dataAvailable", function(e){
+    var dataBlob = new Blob( [e.detail], { type: 'audio/ogg' } );
+    var formData = new FormData();
+    formData.append('recording', dataBlob);
+    var request = $.ajax({
+        type: "POST",
+        url: "api/v1/translations",
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+        processData: false,
+        contentType: false,
+        data: formData
+    });
+
+    request.success(function(response) {
+      $(".red-dot").addClass("red-dot-with-edit-btn");
+      $(".edit-btn-div").show();
+      $('.welcome-screen .jargon h3').html(response.original);
+      $('.welcome-screen .laymans h3').html(response.simplified);
+      $('.translation-box').slideDown(400);
+      $('#loader').slideUp(400).remove();
+      $('.mic-btn img, .red-dot').unbind('click', false);
+    });
+  });
 }
 
 function stopRecording(button) {
   recorder.stop();
-
-  saveRecording();
-  recorder.clear();
+  recorder.removeEventListener( "dataAvailable");
+  recorder = new Recorder();
+  recorder.initStream();
+  // saveRecording();
+  // recorder.clear();
 }
 
 function saveRecording() {
@@ -68,24 +95,25 @@ function saveRecording() {
 
 function InitializeRecording() {
   if (navigator.mediaDevices) {
-    try {
-      // webkit shim
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      window.URL = window.URL || window.webkitURL;
+    // try {
+    //   // webkit shim
+    //   window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    //   window.URL = window.URL || window.webkitURL;
+    //
+    //   audio_context = new AudioContext();
+    // } catch (e) {
+    //   alert('No web audio support in this browser!');
+    // }
 
-      audio_context = new AudioContext();
-    } catch (e) {
-      alert('No web audio support in this browser!');
-    }
-
-    navigator.mediaDevices.getUserMedia({audio: true})
-    .then(startUserMedia)
-    .catch(function(err) {
-      message = "We can't access your microphone. Please try accepting the permissions request for micriphone access.";
-      $("#browser-alert").text(message).show();
-    });
-  } else {
-    message = "Your browser is not compatible. Please try updating your browser to the most recent version.";
-    $("#browser-alert").text(message).show();
+  //   navigator.mediaDevices.getUserMedia({audio: true})
+  //   .then(startUserMedia)
+  //   .catch(function(err) {
+  //     message = "We can't access your microphone. Please try accepting the permissions request for micriphone access.";
+  //     $("#browser-alert").text(message).show();
+  //   });
+  // } else {
+  //   message = "Your browser is not compatible. Please try updating your browser to the most recent version.";
+  //   $("#browser-alert").text(message).show();
+  startUserMedia();
   }
 }

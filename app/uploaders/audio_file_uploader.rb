@@ -23,7 +23,7 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # end
 
   def filename
-    "#{Time.now.strftime("%Y%m%dT%H%M")}.wav"
+    "#{Time.now.strftime("%Y%m%dT%H%M")}.ogg"
   end
 
   # def filename
