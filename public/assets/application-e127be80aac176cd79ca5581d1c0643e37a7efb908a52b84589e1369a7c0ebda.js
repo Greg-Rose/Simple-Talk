@@ -14575,414 +14575,12 @@ var showLoader = function() {
   var target = document.getElementById('loader');
   var spinner = new Spinner(opts).spin(target);
 };
-(function(f) {
-  if(typeof exports==="object"&&typeof module!=="undefined") {
-    module.exports=f();
-  }else if(typeof define==="function"&&define.amd) {
-    define([],f);
-  }else {
-    var g;
-    if(typeof window!=="undefined") {
-      g=window;
-    }else if(typeof global!=="undefined") {
-      g=global;
-    }else if(typeof self!=="undefined") {
-      g=self;
-    }else {
-      g=this;
-    }
-    g.Recorder = f();
-  }
-})
-(function() {
-  var define,module,exports;
-  return (function e(t,n,r) {
-    function s(o,u) {
-      if(!n[o]) {
-        if(!t[o]) {
-          var a=typeof require=="function"&&require;
-          if(!u&&a)return a(o,!0);
-          if(i)return i(o,!0);
-          var f=new Error("Cannot find module '"+o+"'");
-          // throw f.code="MODULE_NOT_FOUND",f
-        }
-        var l=n[o]={exports:{}};
-        t[o][0].call(l.exports,function(e) {
-          var n=t[o][1][e];
-          return s(n?n:e);
-        },l,l.exports,e,t,n,r);
-      }
-      return n[o].exports;
-    }
-    var i=typeof require=="function"&&require;
-    for(var o=0;o<r.length;o++)s(r[o]);return s;
-  })
-  ({1:[function(require,module,exports){
-"use strict";
-
-module.exports = require("./recorder").Recorder;
-
-},{"./recorder":2}],2:[function(require,module,exports){
-'use strict';
-
-var _createClass = (function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-    };
-})();
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Recorder = undefined;
-
-var _inlineWorker = require('inline-worker');
-
-var _inlineWorker2 = _interopRequireDefault(_inlineWorker);
-
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
-
-var Recorder = exports.Recorder = (function () {
-    function Recorder(source, cfg) {
-        var _this = this;
-
-        _classCallCheck(this, Recorder);
-
-        this.config = {
-            bufferLen: 4096,
-            numChannels: 2,
-            mimeType: 'audio/wav'
-        };
-        this.recording = false;
-        this.callbacks = {
-            getBuffer: [],
-            exportWAV: []
-        };
-
-        Object.assign(this.config, cfg);
-        this.context = source.context;
-        this.node = (this.context.createScriptProcessor || this.context.createJavaScriptNode).call(this.context, this.config.bufferLen, this.config.numChannels, this.config.numChannels);
-
-        this.node.onaudioprocess = function (e) {
-            if (!_this.recording) return;
-
-            var buffer = [];
-            for (var channel = 0; channel < _this.config.numChannels; channel++) {
-                buffer.push(e.inputBuffer.getChannelData(channel));
-            }
-            _this.worker.postMessage({
-                command: 'record',
-                buffer: buffer
-            });
-        };
-
-        source.connect(this.node);
-        this.node.connect(this.context.destination); //this should not be necessary
-
-        var self = {};
-        this.worker = new _inlineWorker2.default(function () {
-            var recLength = 0,
-                recBuffers = [],
-                sampleRate,
-                numChannels;
-
-            self.onmessage = function (e) {
-                switch (e.data.command) {
-                    case 'init':
-                        init(e.data.config);
-                        break;
-                    case 'record':
-                        record(e.data.buffer);
-                        break;
-                    case 'exportWAV':
-                        exportWAV(e.data.type);
-                        break;
-                    case 'getBuffer':
-                        getBuffer();
-                        break;
-                    case 'clear':
-                        clear();
-                        break;
-                }
-            };
-
-            function init(config) {
-                sampleRate = config.sampleRate;
-                numChannels = config.numChannels;
-                initBuffers();
-            }
-
-            function record(inputBuffer) {
-                for (var channel = 0; channel < numChannels; channel++) {
-                    recBuffers[channel].push(inputBuffer[channel]);
-                }
-                recLength += inputBuffer[0].length;
-            }
-
-            function exportWAV(type) {
-                var buffers = [];
-                for (var channel = 0; channel < numChannels; channel++) {
-                    buffers.push(mergeBuffers(recBuffers[channel], recLength));
-                }
-                var interleaved;
-                if (numChannels === 2) {
-                    interleaved = interleave(buffers[0], buffers[1]);
-                } else {
-                    interleaved = buffers[0];
-                }
-                var dataview = encodeWAV(interleaved);
-                var audioBlob = new Blob([dataview], { type: type });
-
-                self.postMessage({ command: 'exportWAV', data: audioBlob });
-            }
-
-            function getBuffer() {
-                var buffers = [];
-                for (var channel = 0; channel < numChannels; channel++) {
-                    buffers.push(mergeBuffers(recBuffers[channel], recLength));
-                }
-                self.postMessage({ command: 'getBuffer', data: buffers });
-            }
-
-            function clear() {
-                recLength = 0;
-                recBuffers = [];
-                initBuffers();
-            }
-
-            function initBuffers() {
-                for (var channel = 0; channel < numChannels; channel++) {
-                    recBuffers[channel] = [];
-                }
-            }
-
-            function mergeBuffers(recBuffers, recLength) {
-                var result = new Float32Array(recLength);
-                var offset = 0;
-                for (var i = 0; i < recBuffers.length; i++) {
-                    result.set(recBuffers[i], offset);
-                    offset += recBuffers[i].length;
-                }
-                return result;
-            }
-
-            function interleave(inputL, inputR) {
-                var length = inputL.length + inputR.length;
-                var result = new Float32Array(length);
-
-                var index = 0,
-                    inputIndex = 0;
-
-                while (index < length) {
-                    result[index++] = inputL[inputIndex];
-                    result[index++] = inputR[inputIndex];
-                    inputIndex++;
-                }
-                return result;
-            }
-
-            function floatTo16BitPCM(output, offset, input) {
-                for (var i = 0; i < input.length; i++, offset += 2) {
-                    var s = Math.max(-1, Math.min(1, input[i]));
-                    output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
-                }
-            }
-
-            function writeString(view, offset, string) {
-                for (var i = 0; i < string.length; i++) {
-                    view.setUint8(offset + i, string.charCodeAt(i));
-                }
-            }
-
-            function encodeWAV(samples) {
-                var buffer = new ArrayBuffer(44 + samples.length * 2);
-                var view = new DataView(buffer);
-
-                /* RIFF identifier */
-                writeString(view, 0, 'RIFF');
-                /* RIFF chunk length */
-                view.setUint32(4, 36 + samples.length * 2, true);
-                /* RIFF type */
-                writeString(view, 8, 'WAVE');
-                /* format chunk identifier */
-                writeString(view, 12, 'fmt ');
-                /* format chunk length */
-                view.setUint32(16, 16, true);
-                /* sample format (raw) */
-                view.setUint16(20, 1, true);
-                /* channel count */
-                view.setUint16(22, numChannels, true);
-                /* sample rate */
-                view.setUint32(24, sampleRate, true);
-                /* byte rate (sample rate * block align) */
-                view.setUint32(28, sampleRate * 4, true);
-                /* block align (channel count * bytes per sample) */
-                view.setUint16(32, numChannels * 2, true);
-                /* bits per sample */
-                view.setUint16(34, 16, true);
-                /* data chunk identifier */
-                writeString(view, 36, 'data');
-                /* data chunk length */
-                view.setUint32(40, samples.length * 2, true);
-
-                floatTo16BitPCM(view, 44, samples);
-
-                return view;
-            }
-        }, self);
-
-        this.worker.postMessage({
-            command: 'init',
-            config: {
-                sampleRate: this.context.sampleRate,
-                numChannels: this.config.numChannels
-            }
-        });
-
-        this.worker.onmessage = function (e) {
-            var cb = _this.callbacks[e.data.command].pop();
-            if (typeof cb == 'function') {
-                cb(e.data.data);
-            }
-        };
-    }
-
-    _createClass(Recorder, [{
-        key: 'record',
-        value: function record() {
-            this.recording = true;
-        }
-    }, {
-        key: 'stop',
-        value: function stop() {
-            this.recording = false;
-        }
-    }, {
-        key: 'clear',
-        value: function clear() {
-            this.worker.postMessage({ command: 'clear' });
-        }
-    }, {
-        key: 'getBuffer',
-        value: function getBuffer(cb) {
-            cb = cb || this.config.callback;
-            if (!cb) throw new Error('Callback not set');
-
-            this.callbacks.getBuffer.push(cb);
-
-            this.worker.postMessage({ command: 'getBuffer' });
-        }
-    }, {
-        key: 'exportWAV',
-        value: function exportWAV(cb, mimeType) {
-            mimeType = mimeType || this.config.mimeType;
-            cb = cb || this.config.callback;
-            if (!cb) throw new Error('Callback not set');
-
-            this.callbacks.exportWAV.push(cb);
-
-            this.worker.postMessage({
-                command: 'exportWAV',
-                type: mimeType
-            });
-        }
-    }], [{
-        key: 'forceDownload',
-        value: function forceDownload(blob, filename) {
-            var url = (window.URL || window.webkitURL).createObjectURL(blob);
-            var link = window.document.createElement('a');
-            link.href = url;
-            link.download = filename || 'output.wav';
-            var click = document.createEvent("Event");
-            click.initEvent("click", true, true);
-            link.dispatchEvent(click);
-        }
-    }]);
-
-    return Recorder;
-})();
-
-exports.default = Recorder;
-
-},{"inline-worker":3}],3:[function(require,module,exports){
-"use strict";
-
-module.exports = require("./inline-worker");
-},{"./inline-worker":4}],4:[function(require,module,exports){
-(function (global){
-"use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-var WORKER_ENABLED = !!(global === global.window && global.URL && global.Blob && global.Worker);
-
-var InlineWorker = (function () {
-  function InlineWorker(func, self) {
-    var _this = this;
-
-    _classCallCheck(this, InlineWorker);
-
-    if (WORKER_ENABLED) {
-      var functionBody = func.toString().trim().match(/^function\s*\w*\s*\([\w\s,]*\)\s*{([\w\W]*?)}$/)[1];
-      var url = global.URL.createObjectURL(new global.Blob([functionBody], { type: "text/javascript" }));
-
-      return new global.Worker(url);
-    }
-
-    this.self = self;
-    this.self.postMessage = function (data) {
-      setTimeout(function () {
-        _this.onmessage({ data: data });
-      }, 0);
-    };
-
-    setTimeout(function () {
-      func.call(self);
-    }, 0);
-  }
-
-  _createClass(InlineWorker, {
-    postMessage: {
-      value: function postMessage(data) {
-        var _this = this;
-
-        setTimeout(function () {
-          _this.self.onmessage({ data: data });
-        }, 0);
-      }
-    }
-  });
-
-  return InlineWorker;
-})();
-
-module.exports = InlineWorker;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
-},{}]},{},[1])(1);
-});
-var audio_context;
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.Recorder=t():e.Recorder=t()}(this,function(){return function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={i:o,l:!1,exports:{}};return e[o].call(i.exports,i,i.exports,t),i.l=!0,i.exports}var n={};return t.m=e,t.c=n,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:o})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,n){"use strict";(function(t){var n=function(e){var o=this,i=t.AudioContext||t.webkitAudioContext;if(!n.isRecordingSupported())throw new Error("Recording is not supported in this browser");this.state="inactive",this.eventTarget=t.document.createDocumentFragment(),this.audioContext=new i,this.monitorNode=this.audioContext.createGain(),this.config=Object.assign({bufferLength:4096,command:"init",encoderApplication:2049,encoderFrameSize:20,encoderPath:"assets/encoderWorker.min.js",encoderSampleRate:48e3,leaveStreamOpen:!1,maxBuffersPerPage:40,monitorGain:0,numberOfChannels:1,originalSampleRate:this.audioContext.sampleRate,resampleQuality:3,mediaTrackConstraints:!0,streamPages:!1,wavBitDepth:16,wavSampleRate:this.audioContext.sampleRate},e),this.setMonitorGain(this.config.monitorGain),this.scriptProcessorNode=this.audioContext.createScriptProcessor(this.config.bufferLength,this.config.numberOfChannels,this.config.numberOfChannels),this.scriptProcessorNode.onaudioprocess=function(e){o.encodeBuffers(e.inputBuffer)}};n.isRecordingSupported=function(){var e=t.AudioContext||t.webkitAudioContext,n=t.navigator&&(t.navigator.getUserMedia||t.navigator.mediaDevices&&t.navigator.mediaDevices.getUserMedia);return e&&n},n.prototype.addEventListener=function(e,t,n){this.eventTarget.addEventListener(e,t,n)},n.prototype.clearStream=function(){this.stream&&(this.stream.getTracks?this.stream.getTracks().forEach(function(e){e.stop()}):this.stream.stop(),delete this.stream)},n.prototype.encodeBuffers=function(e){if("recording"===this.state){for(var t=[],n=0;n<e.numberOfChannels;n++)t[n]=e.getChannelData(n);this.encoder.postMessage({command:"encode",buffers:t})}},n.prototype.initStream=function(){var e=this,n=function(n){return e.stream=n,e.sourceNode=e.audioContext.createMediaStreamSource(n),e.sourceNode.connect(e.scriptProcessorNode),e.sourceNode.connect(e.monitorNode),e.eventTarget.dispatchEvent(new t.Event("streamReady")),n},o=function(n){throw e.eventTarget.dispatchEvent(new t.ErrorEvent("streamError",{error:n})),n},i={audio:this.config.mediaTrackConstraints};return this.stream?(this.eventTarget.dispatchEvent(new t.Event("streamReady")),t.Promise.resolve(this.stream)):t.navigator.mediaDevices&&t.navigator.mediaDevices.getUserMedia?t.navigator.mediaDevices.getUserMedia(i).then(n,o).catch(function(err){$("#browser-alert").text("We can't access your microphone. Please try accepting the permissions request for microphone access.").show()}):t.navigator.getUserMedia?new t.Promise(function(e,n){t.navigator.getUserMedia(i,e,n)}).then(n,o):void 0},n.prototype.pause=function(){"recording"===this.state&&(this.state="paused",this.eventTarget.dispatchEvent(new t.Event("pause")))},n.prototype.removeEventListener=function(e,t,n){this.eventTarget.removeEventListener(e,t,n)},n.prototype.resume=function(){"paused"===this.state&&(this.state="recording",this.eventTarget.dispatchEvent(new t.Event("resume")))},n.prototype.setMonitorGain=function(e){this.monitorNode.gain.value=e},n.prototype.start=function(){if("inactive"===this.state&&this.stream){var e=this;this.encoder=new t.Worker(this.config.encoderPath),this.config.streamPages?this.encoder.addEventListener("message",function(t){e.streamPage(t.data)}):(this.recordedPages=[],this.totalLength=0,this.encoder.addEventListener("message",function(t){e.storePage(t.data)})),this.encodeBuffers=function(){delete this.encodeBuffers},this.state="recording",this.monitorNode.connect(this.audioContext.destination),this.scriptProcessorNode.connect(this.audioContext.destination),this.eventTarget.dispatchEvent(new t.Event("start")),this.encoder.postMessage(this.config)}},n.prototype.stop=function(){"inactive"!==this.state&&(this.state="inactive",this.monitorNode.disconnect(),this.scriptProcessorNode.disconnect(),this.config.leaveStreamOpen||this.clearStream(),this.encoder.postMessage({command:"done"}))},n.prototype.storePage=function(e){if(null===e){for(var n=new Uint8Array(this.totalLength),o=0,i=0;i<this.recordedPages.length;i++)n.set(this.recordedPages[i],o),o+=this.recordedPages[i].length;this.eventTarget.dispatchEvent(new t.CustomEvent("dataAvailable",{detail:n})),this.recordedPages=[],this.eventTarget.dispatchEvent(new t.Event("stop"))}else this.recordedPages.push(e),this.totalLength+=e.length},n.prototype.streamPage=function(e){null===e?this.eventTarget.dispatchEvent(new t.Event("stop")):this.eventTarget.dispatchEvent(new t.CustomEvent("dataAvailable",{detail:e}))},e.exports=n}).call(t,n(1))},function(e,t){var n;n=function(){return this}();try{n=n||Function("return this")()||(0,eval)("this")}catch(e){"object"==typeof window&&(n=window)}e.exports=n}])});
 var recorder;
 
 function startUserMedia(stream) {
-  var input = audio_context.createMediaStreamSource(stream);
-  // Uncomment if you want the audio to feedback directly
-  //input.connect(audio_context.destination);
-
-  recorder = new Recorder(input);
+  recorder = new Recorder();
+  recorder.initStream();
 
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
     $('.mic-btn img, .red-dot').bind('click', false);
@@ -15006,60 +14604,46 @@ function startUserMedia(stream) {
 }
 
 function startRecording(button) {
-  recorder.record();
+  recorder.start();
+
+  recorder.addEventListener( "dataAvailable", function(e){
+    var dataBlob = new Blob( [e.detail], { type: 'audio/ogg' } );
+    saveRecording(dataBlob);
+  });
 }
 
 function stopRecording(button) {
   recorder.stop();
-
-  saveRecording();
-  recorder.clear();
+  recorder = new Recorder();
+  recorder.initStream();
 }
 
-function saveRecording() {
-  recorder.exportWAV(function(blob) {
-    var url = URL.createObjectURL(blob);
-    var formData = new FormData();
-    formData.append('recording', blob);
-    var request = $.ajax({
-        type: "POST",
-        url: "api/v1/translations",
-        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
-        processData: false,
-        contentType: false,
-        data: formData
-    });
+function saveRecording(blob) {
+  var formData = new FormData();
+  formData.append('recording', blob);
+  var request = $.ajax({
+      type: "POST",
+      url: "api/v1/translations",
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
+      processData: false,
+      contentType: false,
+      data: formData
+  });
 
-    request.success(function(response) {
-      $(".red-dot").addClass("red-dot-with-edit-btn");
-      $(".edit-btn-div").show();
-      $('.welcome-screen .jargon h3').html(response.original);
-      $('.welcome-screen .laymans h3').html(response.simplified);
-      $('.translation-box').slideDown(400);
-      $('#loader').slideUp(400).remove();
-      $('.mic-btn img, .red-dot').unbind('click', false);
-    });
+  request.success(function(response) {
+    $(".red-dot").addClass("red-dot-with-edit-btn");
+    $(".edit-btn-div").show();
+    $('.welcome-screen .jargon h3').html(response.original);
+    $('.welcome-screen .laymans h3').html(response.simplified);
+    $('.translation-box').slideDown(400);
+    $('#loader').slideUp(400).remove();
+    $('.mic-btn img, .red-dot').unbind('click', false);
   });
 }
 
 function InitializeRecording() {
-  if (navigator.mediaDevices) {
-    try {
-      // webkit shim
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      window.URL = window.URL || window.webkitURL;
-
-      audio_context = new AudioContext();
-    } catch (e) {
-      alert('No web audio support in this browser!');
-    }
-
-    navigator.mediaDevices.getUserMedia({audio: true})
-    .then(startUserMedia)
-    .catch(function(err) {
-      message = "We can't access your microphone. Please try accepting the permissions request for micriphone access.";
-      $("#browser-alert").text(message).show();
-    });
+  if (navigator.mediaDevices || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+    startUserMedia();
   } else {
     message = "Your browser is not compatible. Please try updating your browser to the most recent version.";
     $("#browser-alert").text(message).show();
