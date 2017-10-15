@@ -2,12 +2,13 @@ class Api::V1::TranslationsController < ApplicationController
   def create
     new_translation = Translation.new
     new_translation.audio_file = params["recording"].tempfile
-    new_translation.save
-    file_location = new_translation.audio_file.url
-    output = %x(python lib/python/speech_to_text_2.1/run.py "#{file_location}")
+    temp_audio_file_path = params["recording"].tempfile.path
+    output = %x(python lib/python/speech_to_text_2.1/run.py "#{temp_audio_file_path}")
 
     transcripts = JSON.parse(output)
-    new_translation.update_attributes(transcript: transcripts["original"], simplified: transcripts["simple"])
+    new_translation.transcript = transcripts["original"]
+    new_translation.simplified = transcripts["simple"]
+    new_translation.save
 
     render json: {
       original: render_transcript(new_translation.transcript),
