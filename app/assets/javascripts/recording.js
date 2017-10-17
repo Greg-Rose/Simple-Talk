@@ -5,6 +5,8 @@ function startUserMedia(stream) {
   recorder.initStream();
 
   $("body").on("click", ".mic-btn img, .red-dot", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
     $('.mic-btn img, .red-dot').bind('click', false);
     $(".recording-dot").show();
     $(".translation-box").slideUp(400);
@@ -18,7 +20,7 @@ function startUserMedia(stream) {
       event2.preventDefault();
       event2.stopPropagation();
       $(".stop-btn-div").hide();
-      $(".recording-dot, .red-dot").removeClass("recording-dot-with-stop-btn");
+      $("#loader").addClass("loader-no-btn");
       $(".recording-dot").hide();
       stopRecording();
     });
@@ -53,12 +55,14 @@ function saveRecording(blob) {
   });
 
   request.success(function(response) {
+    $(".recording-dot, .red-dot").removeClass("recording-dot-with-stop-btn");
     $(".red-dot").addClass("red-dot-with-edit-btn");
     $(".edit-btn-div").show();
     $('.welcome-screen .jargon h3').html(response.original);
     $('.welcome-screen .laymans h3').html(response.simplified);
     $('.translation-box').slideDown(400);
     $('#loader').slideUp(400).remove();
+    $("#loader").removeClass("loader-no-btn");
     $('.mic-btn img, .red-dot').unbind('click', false);
   });
 }
