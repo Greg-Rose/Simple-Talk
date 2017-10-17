@@ -26,6 +26,10 @@ body {
   margin-bottom: 30px;
 }
 
+.mic-btn {
+  margin-bottom: 20px;
+}
+
 .red-dot, .recording-dot {
   background: #ff0000; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, #ff0000, #990000); /* For Safari 5.1 to 6.0 */
@@ -36,7 +40,7 @@ body {
   width: 16px;
   border-radius: 100px;
   position: absolute;
-  top: 62%;
+  top: 56.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
@@ -70,6 +74,10 @@ body {
 .edit-btn-div, .stop-btn-div {
   display: none;
   margin-top: 20px;
+}
+
+.loader-no-btn {
+  padding-top: 34px;
 }
 
 .edit-box {

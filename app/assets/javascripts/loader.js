@@ -1,5 +1,5 @@
 var showLoader = function() {
-  $(".center-div").append('<div id="loader"></div>');
+  $(".controls-div").append('<div id="loader"></div>');
   var opts = {
     lines: 13, // The number of lines to draw
     length: 28, // The length of each line
