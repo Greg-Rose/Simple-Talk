@@ -10,6 +10,21 @@ body {
   background: linear-gradient(to right, #085078, #85D8CE); /* Standard syntax */
 }
 
+.navbar {
+  background-color: transparent;
+  background: transparent;
+  border-color: transparent;
+}
+
+.navbar-default .navbar-nav li a {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  text-shadow: none;
+}
+
 #browser-alert {
   display: none;
 }
