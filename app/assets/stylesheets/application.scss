@@ -18,11 +18,12 @@ body {
 
 .navbar-default .navbar-nav li a {
   color: #fff;
-  text-shadow: 1px 1px 2px #000;
+  font-weight: 600;
 }
 
 .navbar-default .navbar-nav li a:hover {
-  text-shadow: none;
+  color: #085078;
+  font-weight: 600;
 }
 
 #browser-alert {
@@ -33,7 +34,7 @@ body {
   color: white;
   font-family: 'Passion One';
   font-size: 70px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
