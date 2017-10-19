@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :translations, only: [:create]
+      resources :transcripts, only: [:create]
     end
   end
 
-  resources :translations, only: [:index]
+  resources :transcripts, only: [:index]
 end

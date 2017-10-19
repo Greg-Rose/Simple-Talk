@@ -9,7 +9,7 @@ function startUserMedia(stream) {
     event.stopPropagation();
     $('.mic-btn img, .red-dot').bind('click', false);
     $(".recording-dot").show();
-    $(".translation-box").slideUp(400);
+    $(".transcript-box").slideUp(400);
     $(".edit-btn-div").hide();
     $(".red-dot").removeClass("red-dot-with-edit-btn");
     showLoader();
@@ -47,7 +47,7 @@ function saveRecording(blob) {
   formData.append('recording', blob);
   var request = $.ajax({
       type: "POST",
-      url: "api/v1/translations",
+      url: "api/v1/transcripts",
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));},
       processData: false,
       contentType: false,
@@ -60,7 +60,7 @@ function saveRecording(blob) {
     $(".edit-btn-div").show();
     $('.welcome-screen .jargon h3').html(response.original);
     $('.welcome-screen .laymans h3').html(response.simplified);
-    $('.translation-box').slideDown(400);
+    $('.transcript-box').slideDown(400);
     $('#loader').slideUp(400).remove();
     $("#loader").removeClass("loader-no-btn");
     $('.mic-btn img, .red-dot').unbind('click', false);

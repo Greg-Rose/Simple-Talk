@@ -30,7 +30,7 @@ $(document).ready(function() {
     $("body").on("click", "#edit-btn", function(event) {
       event.preventDefault();
       event.stopPropagation();
-      var laymansOriginal = $('.laymans .translation').text();
+      var laymansOriginal = $('.laymans .transcript').text();
       $('.laymans').slideUp(400);
       $('.laymans-edit textarea').val(laymansOriginal);
       $('.edit-box').slideDown(400);
@@ -42,7 +42,7 @@ $(document).ready(function() {
       event.stopPropagation();
       var laymansEdit = $('.laymans-edit textarea').val();
       $('.edit-box').slideUp(400);
-      $('.laymans .translation').text(laymansEdit);
+      $('.laymans .transcript').text(laymansEdit);
       $('.laymans').slideDown(400);
       $('#submit-btn').removeClass('btn-success').addClass('btn-primary').text("Edit").attr("id","edit-btn");
     });

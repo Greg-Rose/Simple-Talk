@@ -15,12 +15,14 @@ ActiveRecord::Schema.define(version: 20171019015432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "translations", force: :cascade do |t|
+  create_table "transcripts", force: :cascade do |t|
     t.string "audio_file", null: false
-    t.string "transcript"
+    t.string "original"
     t.string "simplified"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_translations_on_user_id"
+    t.index ["user_id"], name: "index_transcripts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

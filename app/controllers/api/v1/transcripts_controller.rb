@@ -1,4 +1,4 @@
-class Api::V1::TranslationsController < ApplicationController
+class Api::V1::TranscriptsController < ApplicationController
   def create
     temp_audio_file_path = params["recording"].tempfile.path
     output = %x(python lib/python/speech_to_text_2.1/run.py "#{temp_audio_file_path}")
@@ -7,12 +7,12 @@ class Api::V1::TranslationsController < ApplicationController
     simple = transcripts["simple"]
 
     if current_user
-      new_translation = Translation.new
-      new_translation.user = current_user
-      new_translation.audio_file = params["recording"].tempfile
-      new_translation.transcript = original
-      new_translation.simplified = simple
-      new_translation.save
+      new_transcript = Transcript.new
+      new_transcript.user = current_user
+      new_transcript.audio_file = params["recording"].tempfile
+      new_transcript.original = original
+      new_transcript.simplified = simple
+      new_transcript.save
     end
 
     render json: {
@@ -24,6 +24,6 @@ class Api::V1::TranslationsController < ApplicationController
   private
 
   def render_transcript(transcript)
-    ApplicationController.render(partial: 'translations/translation', locals: { translation: transcript })
+    ApplicationController.render(partial: 'transcripts/transcript', locals: { transcript: transcript })
   end
 end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :translations
+  has_many :transcripts
 
   validates :first_name, presence: true
   validates :last_name, presence: true
