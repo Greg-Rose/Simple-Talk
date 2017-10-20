@@ -10,6 +10,52 @@ body {
   background: linear-gradient(to right, #085078, #85D8CE); /* Standard syntax */
 }
 
+.main-alerts {
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: transparent;
+  background: transparent;
+  border-color: transparent;
+}
+
+.navbar-default .navbar-nav li a, .navbar-default .navbar-brand {
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  color: #085078;
+  font-weight: 600;
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Passion One';
+  font-size: 30px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #85D8CE;
+}
+
+.navbar-default .navbar-nav .user-nav-dropdown.open a {
+  background: transparent;
+}
+
+.navbar-default .navbar-nav .user-nav-dropdown.open a:focus, .navbar-default .navbar-nav > li > a:focus {
+  color: #085078;
+}
+
+.user-nav-dropdown.open .dropdown-menu {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 #browser-alert {
   display: none;
 }
@@ -18,7 +64,7 @@ body {
   color: white;
   font-family: 'Passion One';
   font-size: 70px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -50,7 +96,7 @@ body {
   top: 49%;
 }
 
-.translation-box {
+.transcript-box {
   background-color: black;
   background: -webkit-linear-gradient(left, #1a1a1a, #000000); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, #1a1a1a, #000000); /* For Opera 11.1 to 12.0 */
@@ -66,7 +112,7 @@ body {
   display: none;
 }
 
-.translation {
+.transcript {
   color: white;
   margin-bottom: 20px;
 }
@@ -87,4 +133,40 @@ body {
 .laymans-edit textarea {
   height: 320px;
   width: 220px;
+}
+
+.devise-forms .panel {
+  background-color: #ecf9f7;
+}
+
+.transcripts-index .panel-heading {
+  background-color: #262626;
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: white;
+}
+
+.transcripts-index .panel, .transcripts-index .panel-body {
+  background-color: black;
+  background: -webkit-linear-gradient(left, #1a1a1a, #000000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1a1a1a, #000000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1a1a1a, #000000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1a1a1a, #000000); /* Standard syntax */
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: white;
+}
+
+.transcripts-index .panel-body h3 {
+  color: #333333;
+  margin-top: 10px;
+}
+
+.transcripts-index .panel-body p {
+  font-size: 16px;
+}
+
+#my-transcripts-title {
+  color: white;
+  margin-bottom: 30px;
 }
