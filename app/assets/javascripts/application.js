@@ -47,4 +47,8 @@ $(document).ready(function() {
       $('#submit-btn').removeClass('btn-success').addClass('btn-primary').text("Edit").attr("id","edit-btn");
     });
   }
+
+  if ($(".main-alerts").length) {
+    fadeAlert();
+  }
 });
