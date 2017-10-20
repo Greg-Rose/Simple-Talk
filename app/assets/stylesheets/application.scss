@@ -42,6 +42,20 @@ body {
   color: #85D8CE;
 }
 
+.navbar-default .navbar-nav .user-nav-dropdown.open a {
+  background: transparent;
+}
+
+.navbar-default .navbar-nav .user-nav-dropdown.open a:focus, .navbar-default .navbar-nav > li > a:focus {
+  color: #085078;
+}
+
+.user-nav-dropdown.open .dropdown-menu {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 #browser-alert {
   display: none;
 }
