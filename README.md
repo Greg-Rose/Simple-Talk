@@ -1,5 +1,7 @@
 # Simple Talk
 
+![alt text](/demo-screenshot.png "Demo Screenshot")
+
 Medical Jargon Transcription and Simplification App
 
 Try it out: https://simpletalkdoc.herokuapp.com
