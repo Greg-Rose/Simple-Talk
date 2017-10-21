@@ -1,13 +1,13 @@
-<h1 style="text-align: center;">
+<h1 align="center">
   SimpleTalk
 </h1>
 
 ![alt text](/demo-screenshot.png "Demo Screenshot")
 
-<p style="text-align: center;">
+<p align="center">
   Medical Jargon Transcription and Simplification App
 </p>
-<p style="text-align: center;">
+<p align="center">
   Try it out: https://simpletalkdoc.herokuapp.com
 </p>
 
