@@ -1,11 +1,15 @@
-# Simple Talk
+<h1 style="text-align: center;">
+  SimpleTalk
+</h1>
 
 ![alt text](/demo-screenshot.png "Demo Screenshot")
 
-Medical Jargon Transcription and Simplification App
-
-Try it out: https://simpletalkdoc.herokuapp.com
-
+<p style="text-align: center;">
+  Medical Jargon Transcription and Simplification App
+<p>
+<p style="text-align: center;">
+  Try it out: https://simpletalkdoc.herokuapp.com
+</p>
 ## Contributors
 
 * Ja'naysha Hamilton
