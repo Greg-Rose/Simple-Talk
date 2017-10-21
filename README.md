@@ -6,10 +6,11 @@
 
 <p style="text-align: center;">
   Medical Jargon Transcription and Simplification App
-<p>
+</p>
 <p style="text-align: center;">
   Try it out: https://simpletalkdoc.herokuapp.com
 </p>
+
 ## Contributors
 
 * Ja'naysha Hamilton
