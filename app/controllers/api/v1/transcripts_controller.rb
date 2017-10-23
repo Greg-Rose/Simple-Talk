@@ -3,8 +3,10 @@ class Api::V1::TranscriptsController < ApplicationController
     temp_audio_file_path = params["recording"].tempfile.path
     output = %x(python lib/python/speech_to_text_2.1/run.py "#{temp_audio_file_path}")
     transcripts = JSON.parse(output)
-    original = transcripts["original"]
-    simple = transcripts["simple"]
+    original = transcripts["original"].rstrip + "."
+    simple = transcripts["simple"].rstrip + "."
+    original[0] = original[0].capitalize
+    simple[0] = simple[0].capitalize
 
     if current_user
       new_transcript = Transcript.new
