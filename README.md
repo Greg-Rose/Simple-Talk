@@ -2,7 +2,7 @@
   SimpleTalk
 </h1>
 
-![alt text](/demo-screenshot.png "Demo Screenshot")
+![alt text](/demo-screenshot.jpg "Demo Screenshot")
 
 <p align="center">
   Medical Jargon Transcription and Simplification App
